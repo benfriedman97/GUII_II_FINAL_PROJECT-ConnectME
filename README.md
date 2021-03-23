@@ -5,4 +5,4 @@ Final project for GUI II (Graphical User Interface Programming II). ConnectME is
 
 Languags and Technology:
 
-Link: https://benfriedman97.github.io/GUII_II_FINAL_PROJECT-ConnectME/index.php
+Link: http://cs.uml.edu/~jcalles/ConnectME/index.php
