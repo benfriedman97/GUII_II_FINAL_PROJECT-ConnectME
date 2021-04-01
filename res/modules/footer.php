@@ -21,7 +21,7 @@
                         <i class="bi bi-envelope"></i> <!-- icon -->
 
                     <!-- github repository -->
-                    &emsp;</a><a href="#" target="_blank">
+                    &emsp;</a><a href="https://github.com/benfriedman97/GUII_II_FINAL_PROJECT-ConnectME" target="_blank">
                         <i class="bi bi-github"></i></a> <!-- icon -->
 
                     <!-- home -->
