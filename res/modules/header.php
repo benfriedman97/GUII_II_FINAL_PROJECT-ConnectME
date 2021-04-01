@@ -6,13 +6,13 @@
     <meta name="authors" content="Joseph Calles, Benjamin Friedman, Tammy Liu" />
     <meta name="description" content="COMP.4210-201 SP2021 Term Project" />
     <meta name="organization" content="University of Massachusetts Lowell" />
-    <meta name="keywords" content="UML, GUI, HTML5, CSS3, JS, PHP, Bootstrap 5.0" />
+    <meta name="keywords" content="UML, GUI, HTML5, CSS3, JS, PHP, Bootstrap 5.0, MySQL" />
     
     <!-- title -->
     <title>ConnectME</title>
     
     <!-- tab icon -->
-    <link rel="icon" type="image/x-icon" href="res/images/icon.webp" />
+    <link rel="icon" type="image/x-icon" href="../res/images/icon.webp" />
 
     <!-- CSS styles -->
         <!-- Bootstrap main -->
@@ -24,7 +24,7 @@
         <!-- Bootstrap custom theme -->
     <link rel="stylesheet" 
           type="text/css" 
-          href="res/styles/bootstrap-cerulean-theme.min.css" />
+          href="../res/styles/bootstrap-cerulean-theme.min.css" />
 
         <!-- Bootstrap icons -->
     <link rel="stylesheet" 
@@ -33,4 +33,4 @@
         <!-- custom CSS -->
     <link rel="stylesheet" 
           type="text/css" 
-          href="res/styles/style.css" />
+          href="../res/styles/common_styles.css" />

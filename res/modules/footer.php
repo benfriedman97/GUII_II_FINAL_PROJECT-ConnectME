@@ -1,11 +1,13 @@
 
+    <hr />
+
     <!-- footer -->
     <footer> <center>
         <div class="container-fluid">
             <div class="row">
 
                 <div class="col-xs-12 col-md-2 justify-content-center">
-                    <img src="res/images/icon.webp" width="50px" />
+                    <img src="../res/images/icon.webp" width="50px" />
                 </div>
 
                 <div class="col-xs-12 col-md-8 justify-content-center">
@@ -56,7 +58,4 @@
 
         <!-- JavaScript -->
     <script type="text/javascript" 
-            src="res/scripts/script.js"></script>
-
-        <!-- PHP -->
-    <?php include 'res/scripts/MySQLi_functions.php'; ?>
+            src="../res/scripts/common_scripts.js"></script>

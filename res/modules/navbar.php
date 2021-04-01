@@ -1,3 +1,4 @@
+
     <!-- navbar -->
     <nav class="navbar fixed-top navbar-dark bg-primary">
         <form class="container-fluid">
@@ -19,7 +20,7 @@
 
             <!-- navbar heading -->
             <div class="col-xs-9">
-                <img class="align-middle" src="res/images/icon.webp" width="50px" />
+                <img class="align-middle" src="../res/images/icon.webp" width="50px" />
                 <a class="align-middle" href="index.php" target="_self" id="navbar-title">ConnectME</a>
             </div>
 
@@ -32,3 +33,5 @@
             </div>
         </form>
     </nav>
+
+    <br /><br /><hr />

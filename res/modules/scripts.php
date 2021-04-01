@@ -12,7 +12,4 @@
 
         <!-- JavaScript -->
     <script type="text/javascript" 
-            src="res/scripts/script.js"></script>
-
-        <!-- PHP -->
-    <?php include 'res/scripts/MySQLi_functions.php'; ?>
+            src="../res/scripts/script.js"></script>
