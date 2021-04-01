@@ -39,7 +39,7 @@
         <div class="row">
 
             <!-- left sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-danger">
+            <div class="col-xs-12 col-sm-12 col-md-2 bg-success">
                 Left Sidebar
             </div>
 

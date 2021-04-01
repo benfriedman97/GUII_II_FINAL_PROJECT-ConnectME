@@ -39,7 +39,7 @@
         <div class="row">
 
             <!-- left sidebar -->
-            <div class="col-xs-12 col-md-2 bg-danger">
+            <div class="col-xs-12 col-md-2 bg-success">
                 Left Sidebar
             </div>
 
@@ -59,12 +59,6 @@
     </div>
 
     <?php include "../res/modules/footer.php"; ?>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("nav ul li:nth-child(2) a").addClass("active");
-        });
-    </script>
 
     <?php include "../res/scripts/MySQLi_functions.php"; ?>
 

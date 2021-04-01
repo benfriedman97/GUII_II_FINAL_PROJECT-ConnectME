@@ -51,7 +51,7 @@
             </div>
 
             <!-- right sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-info">
+            <div class="col-xs-12 col-sm-12 col-md-2 bg-warning">
                 Right Sidebar
             </div>
             
