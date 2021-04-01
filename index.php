@@ -18,7 +18,10 @@
         x redesign color scheme (https://bootswatch.com/cerulean/)
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
-  
+
+<!-- start session if it is not already started -->
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+
 <!DOCTYPE html>
 
 <html lang="en-us">
@@ -51,8 +54,10 @@
           type="text/css" 
           href="res/styles/bootstrap-cerulean-theme.min.css" />
 
+        <!-- Bootstrap icons -->
     <link rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
         <!-- custom CSS -->
     <link rel="stylesheet" 
           type="text/css" 
@@ -62,7 +67,7 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+    <nav class="navbar fixed-top navbar-dark bg-primary">
         <form class="container-fluid">
             <!-- dropdown -->
             <div class="col-xs-3">
@@ -82,72 +87,89 @@
 
             <!-- navbar heading -->
             <div class="col-xs-9">
-                <a href="index.php" target="_self" id="navbar-title">ConnectME</a>
+                <img class="align-middle" src="res/images/icon.webp" width="50px" />
+                <a class="align-middle" href="index.php" target="_self" id="navbar-title">ConnectME</a>
             </div>
 
             <!-- sign-in -->
-            <div id="sign-in-buttons" class="col-xs-12">
-                <a href="#" target="_self"><img src="res/images/google_logo.png" width="30px" /></a>
-                <a href="#" target="_self"><img src="res/images/linkedin_logo.png" width="35px" /></a>
-                <a href="#" target="_self"><img src="res/images/github_logo.png" width="30px" /></a>
-                <button class="btn btn-md btn-outline-secondary" type="button">Sign in</button>
+            <div id="sign-in" class="col-xs-3">
+                <div id="welcome_placeholder"></div>
+                <button class="btn btn-lg btn-outline-secondary" type="button">Sign in</button>
             </div>
         </form>
     </nav>
 
-    <br />
+    <br /><br /><hr />
 
     <!-- main body -->
     <div class="container-fluid">
         <div class="row">
 
             <!-- left sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-danger">
+            <div class="col-xs-12 col-md-2 bg-danger">
                 Left Sidebar
             </div>
 
             <!-- main content -->
-            <div class="col-xs-12 col-sm-12 col-md-8">
+            <div class="col-xs-12 col-md-8">
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatum numquam error ad iure voluptatibus quas a est iste ullam consequatur omnis, eveniet porro commodi quidem cumque quisquam odio necessitatibus, doloribus eaque fuga tempore perspiciatis magnam fugiat! Quos doloribus necessitatibus tempora rerum molestiae, dolorem quae consectetur. Quos placeat suscipit dicta, excepturi vel consequatur similique reiciendis repudiandae eos est incidunt modi ea dolores omnis rerum! Commodi, molestiae. Ullam rem quia excepturi aperiam quod ea architecto placeat cupiditate voluptatem fugit hic neque, consequuntur qui nam! Temporibus harum at omnis minus sint aliquid nihil sapiente nisi illo iure perspiciatis, eaque consequuntur sed, qui minima deserunt suscipit architecto vero? Quidem quaerat commodi explicabo modi provident! Nostrum, nam doloremque amet sint saepe perferendis quisquam officia quasi eligendi voluptatem quo temporibus iure vero minima. Dicta voluptatem nulla voluptatibus fuga fugit, officiis perspiciatis quasi natus voluptas, commodi deserunt velit magni obcaecati ipsam similique quam. Explicabo placeat voluptatum labore voluptate, expedita delectus temporibus necessitatibus quaerat. Exercitationem quis fugiat eos quia reiciendis culpa impedit odit cum quaerat, molestiae non sit voluptates ea nobis. Labore nesciunt ullam cumque voluptas accusamus molestias quae unde. Incidunt, ad nesciunt officia porro blanditiis a odit. Accusantium aut natus maxime fuga vitae cupiditate labore, harum quis illo aspernatur eius amet voluptas aliquid, consectetur sed molestiae. Dolore esse expedita earum sit dolores quaerat eius quo rem fuga, perferendis aut laboriosam architecto quod, ducimus sapiente et quae, consectetur nihil aspernatur. Odio quaerat natus doloremque dolores nisi. Corrupti molestiae animi accusantium distinctio nam nostrum temporibus inventore dolore. Doloribus dolore, natus, a, accusantium earum veniam nam fugit laborum consectetur exercitationem deserunt repellendus ipsam. Officia in veniam esse illum consequuntur beatae quo architecto deleniti obcaecati, ea saepe dicta repellat similique voluptates nesciunt animi aliquam adipisci quae error illo velit quam quas quisquam. Eaque vel incidunt optio nostrum suscipit neque, explicabo et possimus sequi alias architecto totam ipsa, voluptate molestias. Illum molestiae provident nihil delectus cupiditate, ipsam eum repudiandae? Dolore eligendi aliquam temporibus illum cupiditate eum modi, ipsum nisi ipsa minus hic quia voluptates in vel ducimus assumenda? Asperiores consectetur, dolore quae sequi voluptatibus beatae eligendi exercitationem qui magnam suscipit accusamus odio tempore temporibus. Harum nam officia quo omnis ullam eligendi aut inventore odit cumque reiciendis unde rerum quaerat reprehenderit ducimus suscipit provident, delectus quasi libero adipisci, voluptatem dicta commodi, ad tempora! A voluptates quis reprehenderit ipsam totam, modi sint deleniti molestiae veritatis temporibus, asperiores perferendis vel. Dolorem inventore suscipit laboriosam architecto vitae maxime eligendi eveniet libero! Corrupti dignissimos, nemo ipsa eaque pariatur ab laboriosam deserunt nam sed adipisci blanditiis quaerat commodi ratione perferendis aliquid cupiditate asperiores aspernatur sit quo ipsam? Tenetur deserunt reprehenderit aspernatur sed doloremque. Error corrupti non placeat ea, esse hic, impedit commodi porro voluptate sequi expedita quidem enim, officia tempore libero nemo beatae. Accusamus molestiae, possimus at eos fugit ab exercitationem architecto obcaecati quo, dignissimos voluptatum unde recusandae eveniet, earum atque quisquam. Commodi repellat veritatis ratione. Rem eos ipsa dolores dolorem non, unde maiores aperiam quaerat temporibus blanditiis cupiditate officiis optio iure iste nisi beatae! Non, ratione!
                 </p>
             </div>
 
             <!-- right sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-warning">
+            <div class="col-xs-12 col-md-2 bg-warning">
                 Right Sidebar
             </div>
             
         </div>
     </div>
 
-
+    <hr/>
 
     <!-- footer -->
-    <footer>
-        <hr/>
-        <center><p>
-            <!-- copyright -->
-            Copyright &copy; Joseph Calles, Benjamin Friedman, & Tammy Liu 
-            <?php echo date("Y");?>. All rights reserved.
+    <footer> <center>
+        <div class="container-fluid">
+            <div class="row">
 
-            <!-- mailto -->
-            &emsp;<a class="nl-social2" 
-                    href="mailto:joseph_calles@student.uml.edu,benjamin_friedman@student.uml.edu,tammy_liu@student.uml.edu">
-                <i class="bi bi-envelope"></i> <!-- icon -->
+                <div class="col-xs-12 col-md-2 justify-content-center">
+                    <img src="res/images/icon.webp" width="50px" />
+                </div>
 
-            <!-- github repository -->
-            &emsp;</a><a href="#" target="_blank">
-                <i class="bi bi-github"></i></a> <!-- icon -->
+                <div class="col-xs-12 col-md-8 justify-content-center">
+                    <!-- copyright -->
+                    Copyright &copy; Joseph Calles, Benjamin Friedman, & Tammy Liu 
+                    <?php echo date("Y");?>. All rights reserved.
 
-            <!-- home -->
-            &emsp;</a><a href="index.php" target="_self">
-                <i class="bi bi-house"></i></a> <!-- icon -->
+                    <!-- mailto -->
+                    &emsp;<a class="nl-social2" 
+                            href="mailto:joseph_calles@student.uml.edu,benjamin_friedman@student.uml.edu,tammy_liu@student.uml.edu">
+                        <i class="bi bi-envelope"></i> <!-- icon -->
 
-            <br />
-        Source code is distributed under the MIT license.
-        </p></center>
-    </footer>
+                    <!-- github repository -->
+                    &emsp;</a><a href="#" target="_blank">
+                        <i class="bi bi-github"></i></a> <!-- icon -->
+
+                    <!-- home -->
+                    &emsp;</a><a href="index.php" target="_self">
+                        <i class="bi bi-house"></i></a> <!-- icon -->
+                                    
+                    <br />
+                    Source code is distributed under the MIT license.
+                </div>
+
+                <!-- PayPal link -->
+                <div class="col-xs-12 col-md-2 justify-content-center">
+                    <form action="https://www.paypal.com/donate" method="post" target="_top">
+                        <input type="hidden" name="business" value="RCM9NZRQ4MQRW" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer> </center>
 
     <!-- scripts -->
 

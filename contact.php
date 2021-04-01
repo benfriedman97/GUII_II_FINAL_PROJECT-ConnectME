@@ -18,6 +18,9 @@
         x redesign color scheme (https://bootswatch.com/cerulean/)
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
+
+<!-- start session if it is not already started -->
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
   
 <!DOCTYPE html>
 
@@ -57,38 +60,41 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+    <nav class="navbar fixed-top navbar-dark bg-primary">
         <form class="container-fluid">
+            <!-- dropdown -->
             <div class="col-xs-3">
-                <!-- dropdown -->
                 <div class="btn">
                     <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-list"></i>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-lg-start">
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="about_us.php" target="_self">About Us</a></li>
                         <li><a class="dropdown-item" href="the_industry.php" target="_self">The Industry</a></li>
                         <li><a class="dropdown-item" href="networking.php" target="_self">Networking</a></li>
                         <li><a class="dropdown-item" href="getting_started.php" target="_self">Getting Started</a></li>
-                        <li><a class="dropdown-item active" href="contact.php" target="_self">Contact</a></li>
+                        <li><a class="dropdown-item" href="contact.php" target="_self">Contact</a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- title -->
+            <!-- navbar heading -->
             <div class="col-xs-9">
-                <a href="index.php" id="navbar-title">ConnectME</a>
+                <img class="align-middle" src="res/images/icon.webp" width="50px" />
+                <a class="align-middle" href="index.php" target="_self" id="navbar-title">ConnectME</a>
             </div>
 
             <!-- sign-in -->
-            <div id="sign-in-buttons" class="col-xs-12">
-                <a href="#" target="_self"><img src="res/images/google_logo.png" width="30px" /></a>
-                <a href="#" target="_self"><img src="res/images/linkedin_logo.png" width="35px" /></a>
-                <a href="#" target="_self"><img src="res/images/github_logo.png" width="30px" /></a>
-                <button class="btn btn-md btn-outline-secondary" type="button">Sign in</button>
+            <div id="sign-in" class="col-xs-3">
+                <div id="welcome_placeholder"></div>
+                <button class="btn btn-lg btn-outline-secondary" type="button">
+                    <a href="signin.php" target="_self">Sign in</a>
+                </button>
             </div>
         </form>
     </nav>
+
+    <br /><br /><hr />
 
     <!-- main body -->
     <div class="container-fluid">
@@ -114,32 +120,51 @@
         </div>
     </div>
 
+    <hr/>
+
     <!-- footer -->
-    <footer>
-        <hr/>
-        <center><p>
+    <footer> <center>
+        <div class="container-fluid">
+            <div class="row">
 
-        <!-- copyright -->
-        Copyright &copy; Joseph Calles, Benjamin Friedman, & Tammy Liu 
-        <?php echo date("Y");?>. All rights reserved.
+                <div class="col-xs-12 col-md-2 justify-content-center">
+                    <img src="res/images/icon.webp" width="50px" />
+                </div>
 
-        <!-- mailto -->
-        &emsp;<a class="nl-social2" 
-                 href="mailto:joseph_calles@student.uml.edu,benjamin_friedman@student.uml.edu,tammy_liu@student.uml.edu">
-            <i class="bi bi-envelope"></i> <!-- icon -->
+                <div class="col-xs-12 col-md-8 justify-content-center">
+                    <!-- copyright -->
+                    Copyright &copy; Joseph Calles, Benjamin Friedman, & Tammy Liu 
+                    <?php echo date("Y");?>. All rights reserved.
 
-        <!-- github repository -->
-        &emsp;</a><a href="#" target="_blank">
-            <i class="bi bi-github"></i></a> <!-- icon -->
+                    <!-- mailto -->
+                    &emsp;<a class="nl-social2" 
+                            href="mailto:joseph_calles@student.uml.edu,benjamin_friedman@student.uml.edu,tammy_liu@student.uml.edu">
+                        <i class="bi bi-envelope"></i> <!-- icon -->
 
-        <!-- home -->
-        &emsp;</a><a href="index.php" target="_self">
-            <i class="bi bi-house"></i></a> <!-- icon -->
+                    <!-- github repository -->
+                    &emsp;</a><a href="#" target="_blank">
+                        <i class="bi bi-github"></i></a> <!-- icon -->
 
-        <br>
-        Source code is distributed under the MIT license.
-        </p></center>
-    </footer>
+                    <!-- home -->
+                    &emsp;</a><a href="index.php" target="_self">
+                        <i class="bi bi-house"></i></a> <!-- icon -->
+                                    
+                    <br />
+                    Source code is distributed under the MIT license.
+                </div>
+
+                <!-- PayPal link -->
+                <div class="col-xs-12 col-md-2 justify-content-center">
+                    <form action="https://www.paypal.com/donate" method="post" target="_top">
+                        <input type="hidden" name="business" value="RCM9NZRQ4MQRW" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer> </center>
 
     <!-- scripts -->
 
