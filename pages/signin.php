@@ -117,7 +117,7 @@
                         <br /><br />
 
                         <!-- sign up alternative -->
-                        Not a member? <a href="#" target="_self" class="h6">Sign up!</a>
+                        Not a member? <a href="signup.php" target="_self" class="h6">Sign up!</a>
                     </form>
                 </main>
             </div>
