@@ -21,17 +21,31 @@
     
     <?php include "../res/modules/navbar.php"; ?>
 
-    <div class="container text-center">
-        <div class="p-4 mb-4 bg-light rounded-3">
-            <div class="container-fluid py-7">
-                <main class="form-signin">
-                    
+    
+    <!-- main body -->
+    <div class="container-fluid">
+        <div class="row">
 
-                        
-                </main>
+            <!-- left sidebar -->
+            <div class="col-xs-12 col-md-2 bg-success">
+                Left Sidebar
             </div>
+
+            <!-- main content -->
+            <div class="col-xs-12 col-md-8">
+                <p>
+                USER ACCOUNT PAGE HERE
+                </p>
+            </div>
+
+            <!-- right sidebar -->
+            <div class="col-xs-12 col-md-2 bg-warning">
+                Right Sidebar
+            </div>
+            
         </div>
     </div>
+    
 
     <?php include "../res/modules/footer.php"; ?>
 
