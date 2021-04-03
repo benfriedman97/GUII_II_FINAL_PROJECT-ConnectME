@@ -90,7 +90,7 @@
         }
 
         /* Add a blue text color to links */
-        a {
+        main a {
             color: dodgerblue;
         }
 
@@ -110,7 +110,7 @@
         <div class="p-4 mb-4 bg-light rounded-3">
             <div class="container-fluid py-7">
                 <main class="form-signup">
-                    <form class="modal-content" action="../res/scripts/signup.php" method="post">
+                    <form class="modal-content" action="../res/scripts/MySQLi_userdb.php" method="post">
                         <div class="container">
 
                             <h1>Sign Up</h1>
@@ -119,16 +119,15 @@
 
                             <!-- First Name -->
                             <label for="text"><b>First Name</b></label>
-                            <input type="text" placeholder="First Name" name="first-name" id="first-name" required>
+                            <input type="text" placeholder="First Name" name="first_name" id="first_name" required>
 
                             <!-- Last Name -->
                             <label for="text"><b>Last Name</b></label>
-                            <input type="text" placeholder="Last Name" name="last-name" id="last-name" required>
+                            <input type="text" placeholder="Last Name" name="last_name" id="last_name" required>
 
                             <!-- DOB -->
                             <label for="birthday"><b>Date of Birth</b></label>
-                            <input type="date" name="birthday" id="birthday" required>
-                            <input type="submit" >
+                            <input type="date" name="date_of_birth" id="date_of_birth" required>
 
                             <!-- Address -->
                             <label for="text"><b>Address</b></label>
@@ -196,14 +195,14 @@
 
                             <!-- Profile Type -->
                             <label for="account type">Account Type</label>
-                            <select name="account-type" id="account-type">
+                            <select name="account_type" id="account_type">
                                 <option value="Student">Student</option>
                                 <option value="Mentor">Mentor</option>
                             </select>
 
                             <!-- Organization -->
                             <label for="text"><b>University or Company</b></label>
-                            <input type="text" placeholder="Enter university or company" name="univ-or-comp" id="univ-or-comp" required>
+                            <input type="text" placeholder="Enter university or company" name="univ_or_comp" id="univ_or_comp" required>
 
                             <!-- Email -->
                             <label for="email"><b>Email</b></label>
@@ -211,18 +210,18 @@
 
                             <!-- Password -->
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                            <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
                             <!-- Repeat Password -->
                             <label for="psw-repeat"><b>Repeat Password</b></label>
-                            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                            <input type="password" placeholder="Repeat Password" name="password_repeat" id="password_repeat" required>
                             <hr>
 
                             <!-- Terms and and conditions -->
                             <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                             <!-- Submit -->
-                            <button type="submit" class="registerbtn">Register</button>
+                            <button type="submit" name="submit_user_info" class="registerbtn">Register</button>
                         
                         </div>
                         
