@@ -1,15 +1,9 @@
 <?php
 
-/* # # # # # Inject javascript to display an ad on the sidebar # # # # #
- *
- * 
- * 
- * 
- * 
- */
+/* # # # # # Inject javascript to display an ad on the sidebar # # # # # */
 function display_random_ad() {
 
-    $choice = rand(1, 7);
+    $choice = rand(1, 9);
 
     switch ($choice) {
 
@@ -139,51 +133,97 @@ function display_random_ad() {
             ';
             break;
 
-            case 6: // All-New Eero 6 And Pro 6
-                echo '
-                <center>
-                    <script type="text/javascript">
-                        amzn_assoc_ad_type = "banner";
-                        amzn_assoc_marketplace = "amazon";
-                        amzn_assoc_region = "US";
-                        amzn_assoc_placement = "assoc_banner_placement_default";
-                        amzn_assoc_campaigns = "eero6";
-                        amzn_assoc_banner_type = "category";
-                        amzn_assoc_p = "14";
-                        amzn_assoc_isresponsive = "false";
-                        amzn_assoc_banner_id = "0RKT89NBA89JA3F88KR2";
-                        amzn_assoc_width = "160";
-                        amzn_assoc_height = "600";
-                        amzn_assoc_tracking_id = "connectme-uml-20";
-                        amzn_assoc_linkid = "dc805bede6e61d79aa851222fcff4983";
-                    </script>
-                    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-                </center>
-                ';
-                break;
+        case 6: // All-New Eero 6 And Pro 6
+            echo '
+            <center>
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_campaigns = "eero6";
+                    amzn_assoc_banner_type = "category";
+                    amzn_assoc_p = "14";
+                    amzn_assoc_isresponsive = "false";
+                    amzn_assoc_banner_id = "0RKT89NBA89JA3F88KR2";
+                    amzn_assoc_width = "160";
+                    amzn_assoc_height = "600";
+                    amzn_assoc_tracking_id = "connectme-uml-20";
+                    amzn_assoc_linkid = "dc805bede6e61d79aa851222fcff4983";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </center>
+            ';
+            break;
 
-            case 7:
-                echo '
-                <center>
-                    <script type="text/javascript">
-                        amzn_assoc_ad_type = "banner";
-                        amzn_assoc_marketplace = "amazon";
-                        amzn_assoc_region = "US";
-                        amzn_assoc_placement = "assoc_banner_placement_default";
-                        amzn_assoc_campaigns = "amz_music";
-                        amzn_assoc_banner_type = "category";
-                        amzn_assoc_p = "14";
-                        amzn_assoc_isresponsive = "false";
-                        amzn_assoc_banner_id = "0YAA9XDH3BAAV71Z4502";
-                        amzn_assoc_width = "160";
-                        amzn_assoc_height = "600";
-                        amzn_assoc_tracking_id = "josephcalles-20";
-                        amzn_assoc_linkid = "313d3ccc4c329b25d29ac977402b23a6";
+        case 7: // Amazon Music
+            echo '
+            <center>
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_campaigns = "amz_music";
+                    amzn_assoc_banner_type = "category";
+                    amzn_assoc_p = "14";
+                    amzn_assoc_isresponsive = "false";
+                    amzn_assoc_banner_id = "0YAA9XDH3BAAV71Z4502";
+                    amzn_assoc_width = "160";
+                    amzn_assoc_height = "600";
+                    amzn_assoc_tracking_id = "josephcalles-20";
+                    amzn_assoc_linkid = "313d3ccc4c329b25d29ac977402b23a6";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </center>
+            ';
+            break;
+
+        case 8: // Prime wardrobe
+            echo '
+            <center>
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_campaigns = "primewardrobe";
+                    amzn_assoc_banner_type = "category";
+                    amzn_assoc_p = "14";
+                    amzn_assoc_isresponsive = "false";
+                    amzn_assoc_banner_id = "11XXSRRV4EB4BYF77N02";
+                    amzn_assoc_width = "160";
+                    amzn_assoc_height = "600";
+                    amzn_assoc_tracking_id = "connectme-uml-20";
+                    amzn_assoc_linkid = "abb74a5de3d47d61f443f54131156b25";
                     </script>
-                    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-                </center>
-                ';
-                break;
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </center>
+            ';
+            break;
+
+        case 9: // Amazon Fire HDX 9
+            echo '
+            <center>
+                <script type="text/javascript">
+                    amzn_assoc_ad_type = "banner";
+                    amzn_assoc_marketplace = "amazon";
+                    amzn_assoc_region = "US";
+                    amzn_assoc_placement = "assoc_banner_placement_default";
+                    amzn_assoc_campaigns = "kindle";
+                    amzn_assoc_banner_type = "category";
+                    amzn_assoc_p = "14";
+                    amzn_assoc_isresponsive = "false";
+                    amzn_assoc_banner_id = "10J9VCHB18FBPQRS0D02";
+                    amzn_assoc_width = "160";
+                    amzn_assoc_height = "600";
+                    amzn_assoc_tracking_id = "connectme-uml-20";
+                    amzn_assoc_linkid = "e8675bb71cce271332f11d1594ce0ee6";
+                </script>
+                <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            </center>
+            ';
+            break;
     }
 }
 
