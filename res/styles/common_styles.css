@@ -54,3 +54,7 @@ a:hover { /* modify apperance */
     font-size: 200%;
     padding: .5em;
 }
+
+.offcanvas-shadow {
+    box-shadow: 0px 0px 15px black;
+}
