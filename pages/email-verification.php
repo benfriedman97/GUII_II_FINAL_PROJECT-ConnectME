@@ -19,8 +19,7 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
 
-<!-- start session if it is not already started -->
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 
@@ -69,6 +68,8 @@
         }
 
     ?>
+
+    <?php include '../res/modules/postscript.php'; ?>
 
 </body>
 

@@ -19,8 +19,7 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
 
-<!-- start session if it is not already started -->
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 
@@ -74,7 +73,7 @@
         <div class="p-4 mb-4 bg-light rounded-3">
             <div class="container-fluid py-7">
                 <main class="form-signin">
-                    <form action="../res/scripts/signin.php" method="post">
+                    <form action="" method="POST">
 
                         <!-- header -->
                         <img class="mb-4" src="../res/images/icon.webp" alt="" width="100">
@@ -89,6 +88,7 @@
                                     placeholder="name@example.com" 
                                     autocomplete="email"
                                     required >
+                            <label for="floatingInput">Email address</label>
                             <label for="floatingInput">Email address</label>
                         </div>
 
@@ -107,7 +107,7 @@
                         <!-- remember me -->
                         <div class="checkbox mb-3">
                             <label>
-                                <input type="checkbox" value="remember-me"> Remember me
+                                <input type="checkbox" name="_remember-me" value="remember-me"> Remember me
                             </label>
                         </div>
 
@@ -125,6 +125,77 @@
     </div>
 
     <?php include "../res/modules/footer.php"; ?>
+
+    <?php 
+    
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        $email = sanitize_input($_POST["_email"]);
+        $password = sanitize_input($_POST["_password"]);
+
+        // MySQLi connection
+
+        $DB_servername = "localhost";
+        $DB_username   = "root";
+        $DB_password   = NULL;
+        $DB_name       = "userdb";
+
+        // Create connection
+        
+        $connection = new mysqli($DB_servername, $DB_username, $DB_password, $DB_name);
+
+        // Check connection
+        if ($connection->connect_error) {
+            die("Connection failed: " . $connection->connect_error);
+        }
+        consoleLog("Connected successfully\n");
+
+        $sql_statement = $connection->prepare("
+            SELECT * 
+            FROM user_information 
+            WHERE email=?
+        ");
+        $sql_statement->bind_param("s", $email);
+
+        $sql_statement->execute();
+        $result = $sql_statement->get_result();
+        $result = $result->fetch_assoc();
+
+        $connection->close();
+
+        if ($result["email"] === $email) {
+            consoleLog("email matched: " . $email);
+
+            if ($result["password"] === $password) {
+                consoleLog("password matched: " . $password);
+
+                // set session variables
+                $_SESSION["current-user-email"]    = $result["email"];
+                $_SESSION["current-user-password"] = $result["password"];
+                $_SESSION["current-user-name"]     = $result["first_name"];
+                $_SESSION["signed-in"] = true;
+
+                if (isset($_POST["_remember-me"])) {
+                    $_SESSION["_remember-me"] = true;    
+                } else {
+                     $_SESSION["_remember-me"] = false; 
+                }
+
+                // redirect to home page
+                echo '<script>window.location.replace("../res/scripts/system-signin.php?from=' . $_GET["from"] . '");</script>';
+
+            } else {
+                consoleLog("password not matched: " . $password);
+            }
+        } else {
+            consoleLog("email not matched: " . $email);
+        }
+    }
+
+    ?>
+
+    <?php include '../res/modules/postscript.php'; ?>
+
 
 </body>
 

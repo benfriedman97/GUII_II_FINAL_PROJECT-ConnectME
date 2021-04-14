@@ -19,8 +19,7 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
   
-<!-- start session if it is not already started -->
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 
@@ -39,8 +38,8 @@
         <div class="row">
 
             <!-- left sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-success">
-                Left Sidebar
+            <div class="col-xs-12 col-sm-12 col-md-2">
+                <?php display_random_ad(); ?>
             </div>
 
             <!-- main content -->
@@ -51,8 +50,8 @@
             </div>
 
             <!-- right sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-warning">
-                Right Sidebar
+            <div class="col-xs-12 col-sm-12 col-md-2">
+                <?php display_random_ad(); ?>
             </div>
             
         </div>
@@ -63,9 +62,11 @@
     <!-- page-specific modification -->
     <script type="text/javascript">
         $(document).ready(function () {
-            $("nav ul li:nth-child(2) a").addClass("active");
+            $("#menu-items li:nth-child(3) a").addClass("active");
         });
     </script>
+
+    <?php include '../res/modules/postscript.php'; ?>
 
 </body>
 
