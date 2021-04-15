@@ -230,6 +230,52 @@
     </div>
 
     <?php include "../res/modules/footer.php"; ?>
+  
+  
+ <?php
+// MySQLi connection
+
+$servername = "localhost";
+$username   = "root";
+$password   = NULL;
+$dbname     = "userdb";
+
+$userdb_connection = new mysqli($servername, $username, $password, $dbname);
+if ($userdb_connection->connect_error) {
+
+    die("Connection failed:" . $userdb->connect_error);
+}
+
+$stmt = $userdb_connection->prepare("INSERT INTO user_information (first_name, last_name, date_of_birth,
+    address, city, state, account_type, univ_or_comp, email, password)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+$stmt->bind_param("ssssssssss", $first_name, $last_name, $date_of_birth, $address, $city, 
+    $state, $account_type, $univ_or_comp, $email, $password);
+
+if (isset($_POST["submit_user_info"])) {
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $date_of_birth = $_POST["date_of_birth"];
+    $address = $_POST["address"];
+    $city = $_POST["city"];
+    $state = $_POST["state"];
+    $account_type = $_POST["account_type"];
+    $univ_or_comp = $_POST["univ_or_comp"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $stmt->execute();
+
+    $stmt->close();
+    $userdb_connection->close();
+
+    echo "New records created successfully";
+}
+
+?>
+  
+  
+  
     <?php include '../res/modules/postscript.php'; ?>
 </body>
 </html>
