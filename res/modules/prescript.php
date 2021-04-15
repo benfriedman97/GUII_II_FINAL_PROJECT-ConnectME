@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set('GMT');
+
 // https://www.codegrepper.com/code-examples/php/console.log+in+php
 // consoleLog for PHP, credit to @Kaotik 03/07/2020 & @0nline 06/10/2020
 function consoleLog($msg) {
@@ -18,6 +20,13 @@ function sanitize_input($data) {
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
+}
+
+function systemLog($msg) {
+    $fp = fopen("../res/logs/log.txt","a+");
+    $timestamp = "[" . date("Y-m-d H:i:s") . "] ";
+    fwrite($fp, $timestamp . $msg . "\n");
+    fclose($fp);
 }
 
 // auto login if cookie is set
@@ -48,13 +57,11 @@ if (isset($_COOKIE["auto-login"]) && !isset($_SESSION["signed-in"])) {
     $_SESSION["current-user-name"]     = $name_decrypted    ;
     $_SESSION["signed-in"] = true;
 
-    consoleLog("SYSTEM: Logged-in using cookie");
+    systemLog($_SESSION["current-user-email"] . " signed in from IP address " . $_SERVER['REMOTE_ADDR'] . " via cookie");
 
 }
 
-    consoleLog("PHP List All Server Variables");
-    foreach ($_SERVER as $key=>$val)
-    consoleLog($key . " " . $val);
+foreach ($_SERVER as $key=>$val) { consoleLog($key . " " . $val); }
 
 include '../res/scripts/ads.php';
 
