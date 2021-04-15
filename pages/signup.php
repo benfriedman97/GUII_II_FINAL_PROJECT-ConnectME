@@ -19,12 +19,10 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
 
-  <!-- start session if it is not already started -->
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+  <?php include '../res/modules/prescript.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- why didn't you include these -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,7 +108,7 @@
         <div class="p-4 mb-4 bg-light rounded-3">
             <div class="container-fluid py-7">
                 <main class="form-signup">
-                    <form class="modal-content" action="" method="post">
+                    <form class="modal-content" action="../res/scripts/MySQLi_userdb.php" method="post">
                         <div class="container">
 
                             <h1>Sign Up</h1>
@@ -147,7 +145,7 @@
                                 <option value="CA">California</option>
                                 <option value="CO">Colorado</option>
                                 <option value="CT">Connecticut</option>
-                                <option value="DE">Deleware</option>
+                                <option value="DE">Delaware</option>
                                 <option value="FL">Florida</option>
                                 <option value="GA">Georgia</option>
                                 <option value="HI">Hawaii</option>
@@ -232,5 +230,6 @@
     </div>
 
     <?php include "../res/modules/footer.php"; ?>
+    <?php include '../res/modules/postscript.php'; ?>
 </body>
 </html>
