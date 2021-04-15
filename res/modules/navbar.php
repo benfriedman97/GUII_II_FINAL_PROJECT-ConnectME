@@ -15,7 +15,7 @@ $link = openssl_encrypt($_SERVER["REQUEST_URI"],
             <div class="col-xs-12 col-md-4">
 
                 <!-- offcanvas button -->
-                <button class="btn btn-lg btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <button class="btn btn-lg btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                     <i class="bi bi-list" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
                 </button>
 
@@ -99,6 +99,7 @@ $link = openssl_encrypt($_SERVER["REQUEST_URI"],
 
             <!-- signin/signout -->
             <div id="sign-in" class="d-flex col-xs-12 col-md-4 justify-content-center justify-content-md-end">
+                <span id="account_page_placeholder"></span>                
                 <a href="signin.php?from=<?php echo $link ?>" target="_self">
                     <button class="btn btn-lg btn-dark" type="button">
                         Sign in&nbsp;

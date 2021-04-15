@@ -26,11 +26,13 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
     // replace the sign-in button and add welcome message
     echo ' 
     <script>
-        $(".welcome_message").replaceWith("                           \\
+        $(".welcome_message").replaceWith(" \\
             <span class=\\"align-middle\\" style=\\"font-size:150%\\"> \\
-                ' . $msg . $_SESSION["current-user-name"] . '           \\
-            </span>                                                      \\
+                ' . $msg . $_SESSION["current-user-name"] . ' \\
+            </span> \\
         ");
+
+        $("nav > div > span").css("color", "white");
 
         $("#sign-in > a > button").text("Sign out");
         $("#sign-in > a").attr("href", "../res/scripts/system-signout.php?from=';
@@ -38,8 +40,19 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
     echo $link; // STRING SYNTAX MAGIC
 
     echo '");
-        $("#sign-in > a > button").toggleClass("btn-dark");
-        $("#sign-in > a > button").toggleClass("btn-light");
+        $("#navbar-title").attr("style", "color:white");
+
+        $("button").toggleClass("btn-dark");
+        $("button").toggleClass("btn-light");
+
+        $("#account_page_placeholder").replaceWith(" \\
+            <a href=\\"user_account_main.php\\" target=\\"_self\\" style=\\"text-align:right;color:white\\"> \\
+                <b>Account page</b> <br/> '; echo $_SESSION["current-user-email"]; echo ' \\
+            </a> \\
+            <a href=\\"user_account_main.php\\" target=\\"_self\\">\\
+                <img class=\\"align-middle\\" src=\\"../res/images/account.png\\" width=\\"50px\\" /> \\
+            </a> \\
+        ");
 
     </script>
     ';
