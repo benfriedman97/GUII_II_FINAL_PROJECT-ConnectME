@@ -181,11 +181,14 @@
                      $_SESSION["_remember-me"] = false; 
                 }
 
+                systemLog($_SESSION["current-user-email"] . " signed in from IP address " . $_SERVER['REMOTE_ADDR']);
+
                 // redirect to home page
                 echo '<script>window.location.replace("../res/scripts/system-signin.php?from=' . $_GET["from"] . '");</script>';
 
             } else {
                 consoleLog("password not matched: " . $password);
+                systemLog($email . " failed login from IP address " . $_SERVER['REMOTE_ADDR']);
             }
         } else {
             consoleLog("email not matched: " . $email);
