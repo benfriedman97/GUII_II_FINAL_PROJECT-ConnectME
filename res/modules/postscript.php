@@ -45,6 +45,10 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
         $("button").toggleClass("btn-dark");
         $("button").toggleClass("btn-light");
 
+
+        $("nav > div > div > div > button").toggleClass("btn-dark");
+        $("nav > div > div > div > button").toggleClass("btn-light");
+
         $("#account_page_placeholder").replaceWith(" \\
             <a href=\\"user_account_main.php\\" target=\\"_self\\" style=\\"text-align:right;color:white\\"> \\
                 <b>Account page</b> <br/> '; echo $_SESSION["current-user-email"]; echo ' \\
@@ -53,6 +57,9 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
                 <img class=\\"align-middle\\" src=\\"../res/images/account.png\\" width=\\"50px\\" /> \\
             </a> \\
         ");
+
+
+
 
     </script>
     ';
