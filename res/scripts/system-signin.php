@@ -4,6 +4,14 @@
 
 <?php
 
+date_default_timezone_set('GMT');
+function systemLog($msg) {
+    $fp = fopen("../logs/log.txt","a+");
+    $timestamp = "[" . date("Y-m-d H:i:s") . "] ";
+    fwrite($fp, $timestamp . $msg . "\n");
+    fclose($fp);
+}
+
 // set cookie if remember-me is set
 if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
     isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true) {
@@ -11,7 +19,11 @@ if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
     $_SESSION["_remember-me"] = false;
     
     // remove old cookie
-    setcookie("auto-login", "", time() - 1000, "/", "", 0);
+    if (isset($_COOKIE["auto-login"]))
+    {
+        setcookie("auto-login", "", time() - 1000, "/", "", 0);
+        systemLog("removed auto-login cookie for " . $_SESSION["current-user-email"] . " from IP address " . $_SERVER['REMOTE_ADDR']);
+    }
 
     // encrypt information before sending cookie
     $email_encrypted    = openssl_encrypt(  $_SESSION["current-user-email"]   , 
@@ -35,6 +47,8 @@ if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
         $password_encrypted . "/" . 
         $name_encrypted, 
         time() + 86400, "/", "", 0);
+
+    systemLog("set auto-login cookie for " . $_SESSION["current-user-email"] . " at IP address " . $_SERVER['REMOTE_ADDR']);
 
 }
 

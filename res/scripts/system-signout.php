@@ -4,6 +4,16 @@
 
 <?php
 
+date_default_timezone_set('GMT');
+function systemLog($msg) {
+    $fp = fopen("../logs/log.txt","a+");
+    $timestamp = "[" . date("Y-m-d H:i:s") . "] ";
+    fwrite($fp, $timestamp . $msg . "\n");
+    fclose($fp);
+}
+
+systemLog($_SESSION["current-user-email"] . " signed out");
+
 // unset session variables
 unset($_SESSION["current-user-email"]);
 unset($_SESSION["current-user-password"]);
