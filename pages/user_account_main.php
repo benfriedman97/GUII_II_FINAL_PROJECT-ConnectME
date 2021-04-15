@@ -1,5 +1,5 @@
-  <!-- start session if it is not already started -->
-  <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+
+  <?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +13,25 @@
 
     <!-- page-specific style -->
     <style>
-
     
+       
+        #edit_user_profile {
+            margin-top: 20%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-style: groove;
+            background-color: #dad8d8;
+            border-color: black;
+        }
+
+        #name_email {
+            padding-top: 5%;
+            color:black;
+        }
+    
+        
+
+        
     </style>
 </head>
 <body>
@@ -24,30 +41,79 @@
     
     <!-- main body -->
     <div class="container-fluid">
-        <div class="row">
 
-            <!-- left sidebar -->
-            <div class="col-xs-12 col-md-2 bg-success">
-                Left Sidebar
+        <div class="row p-5">
+            <div class="col">
+                <img src="../res/images/account.png" alt="account_logo" class="rounded mx-auto d-block" style="width:50%">
             </div>
 
-            <!-- main content -->
-            <div class="col-xs-12 col-md-8">
-                <p>
-                USER ACCOUNT PAGE HERE
-                </p>
+            <div class="col" id="name_email">
+                <h5 class="text-center" style="color:black">Name: (will display here)</h4>
+                <h5 class="text-center" style="color:black">Email: (will dipslay here)</h4>
             </div>
+            <div class="col">
+                <h4 class="text-center" id="edit_user_profile" style="color:black">
+                    <a href="./edit_profile.php">Edit Profile</a>
+                </h4>
+            </div>
+        </div>
 
-            <!-- right sidebar -->
-            <div class="col-xs-12 col-md-2 bg-warning">
-                Right Sidebar
+        <div class="row p-3">
+            <div class="col-3">
+                <h6 class="text-center">CONNECT</h6>
+                <p class="text-center">with others</p>
             </div>
-            
+            <div class="col-6">
+                Start a chat, begin a video conference, and connect with your friends
+                and mentors
+            </div>
+            <div class="col-3">
+            <button type="button" class="btn btn-primary btn-lg">CONNECT</button>
+            </div>
+        </div>
+
+        <div class="row p-3">
+            <div class="col-3">
+                <h6 class="text-center">BROWSE</h6>
+                <p class="text-center">resources</p>
+            </div>
+            <div class="col-6">
+                View articles and resources, keep up with the latest in computer science
+            </div>
+            <div class="col-3">
+            <button type="button" class="btn btn-primary btn-lg">BROWSE</button>
+            </div>
+        </div>
+
+        <div class="row p-3">
+            <div class="col-3">
+                <h6 class="text-center">EXPLORE</h6>
+                <p class="text-center">profiles</p>
+            </div>
+            <div class="col-6">
+                Find new connections and explore profiles
+            </div>
+            <div class="col-3">
+            <button type="button" class="btn btn-primary btn-lg">EXPLORE</button>
+            </div>
+        </div>
+
+        <div class="row p-3">
+            <div class="col-3">
+                <h6 class="text-center">CREATE</h6>
+                <p class="text-center">projects</p>
+            </div>
+            <div class="col-6">
+                Create projects and share them with your mentors for review
+            </div>
+            <div class="col-3">
+            <button type="button" class="btn btn-primary btn-lg">CREATE</button>
+            </div>
         </div>
     </div>
     
 
     <?php include "../res/modules/footer.php"; ?>
-
+    <?php include '../res/modules/postscript.php'; ?>
 </body>
 </html>
