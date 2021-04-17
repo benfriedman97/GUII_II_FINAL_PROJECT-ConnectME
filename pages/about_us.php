@@ -19,7 +19,7 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
   
-<?php include '../res/modules/prescript.php'; ?>
+  <?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 
@@ -43,10 +43,41 @@
             </div>
 
             <!-- main content -->
-            <div class="col-xs-12 col-sm-12 col-md-8">
-                <p>
-                    ABOUT US
-                </p>
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="../res/images/joe_headshot.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Joseph Calles</h5>
+                        <p class="card-text">Joe is a senior computer science student at UMass Lowell. After graduation,
+                            he will work for HCL technologies as a software engineer.
+                        </p>
+                        <a href="https://github.com/TammyLiuXD" class="btn btn-primary">Github</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="../res/images/tammy_headshot.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tammy Liu</h5>
+                        <p class="card-text">Tammy is a senior computer science at mathematics student at UMass Lowell.
+                            After graduation, she is going to graduate school for mathematics.
+                        </p>
+                        <a href="https://github.com/JStar-C" class="btn btn-primary">Github</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="../res/images/ben_headshot.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Benjamin Friedman</h5>
+                        <p class="card-text">Ben is a junior computer science student at UMass Lowell.</p>
+                        <a href="https://github.com/benjamin-friedman" class="btn btn-primary">Github</a>
+                    </div>
+                </div>
             </div>
 
             <!-- right sidebar -->
