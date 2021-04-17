@@ -9,7 +9,7 @@ $link = openssl_encrypt($_SERVER["REQUEST_URI"],
                         
 ?>
     <!-- navbar -->
-    <nav class="navbar fixed-top bg-primary">
+    <nav class="navbar bg-primary">
 
             <!-- offcanvas -->
             <div class="col-xs-12 col-md-4">
@@ -107,5 +107,3 @@ $link = openssl_encrypt($_SERVER["REQUEST_URI"],
                 </a>
             </div>
     </nav>
-
-    <br /><br /><hr />
