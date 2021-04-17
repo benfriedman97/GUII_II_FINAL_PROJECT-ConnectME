@@ -48,8 +48,7 @@
                     <img class="card-img-top" src="../res/images/joe_headshot.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Joseph Calles</h5>
-                        <p class="card-text">Joe is a senior computer science student at UMass Lowell. After graduation,
-                            he will work for HCL technologies as a software engineer.
+                        <p class="card-text">Joe is a senior computer science student at UMass Lowell.
                         </p>
                         <a href="https://github.com/TammyLiuXD" class="btn btn-primary">Github</a>
                     </div>
@@ -61,8 +60,7 @@
                     <img class="card-img-top" src="../res/images/tammy_headshot.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Tammy Liu</h5>
-                        <p class="card-text">Tammy is a senior computer science at mathematics student at UMass Lowell.
-                            After graduation, she is going to graduate school for mathematics.
+                        <p class="card-text">Tammy is a senior computer science student at UMass Lowell.
                         </p>
                         <a href="https://github.com/JStar-C" class="btn btn-primary">Github</a>
                     </div>
