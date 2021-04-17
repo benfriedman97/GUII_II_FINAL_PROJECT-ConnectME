@@ -68,7 +68,9 @@
                 and mentors
             </div>
             <div class="col-3">
-            <button type="button" class="btn btn-primary btn-lg">CONNECT</button>
+            <button type="button" class="btn btn-primary btn-lg">
+                <a href="view_connections.php">CONNECT</a> 
+            </button>
             </div>
         </div>
 
@@ -94,7 +96,9 @@
                 Find new connections and explore profiles
             </div>
             <div class="col-3">
-            <button type="button" class="btn btn-primary btn-lg">EXPLORE</button>
+            <button type="button" class="btn btn-primary btn-lg">
+               <a href="search_for_connections.php">EXPLORE</a>
+            </button>
             </div>
         </div>
 
