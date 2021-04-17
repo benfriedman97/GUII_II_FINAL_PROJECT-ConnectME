@@ -25,22 +25,15 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- left sidebar -->
-            <div class="col-xs-12 col-md-2 bg-success">
-                Left Sidebar
+            <div class="col-6">
+                This column will display mentor connections
             </div>
 
-            <!-- main content -->
-            <div class="col-xs-12 col-md-8">
-                <p>
-                VIEW CONNECTIONS PAGE HERE
-                </p>
+            <div class="col-6">
+                This column will display student connections
             </div>
 
-            <!-- right sidebar -->
-            <div class="col-xs-12 col-md-2 bg-warning">
-                Right Sidebar
-            </div>
+            
             
         </div>
     </div>
