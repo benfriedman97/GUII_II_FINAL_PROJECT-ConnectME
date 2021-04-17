@@ -12,7 +12,11 @@
 
     <!-- page-specific style -->
     <style>
-
+        #search_header {
+            text-align:center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
     
     </style>
 </head>
@@ -23,28 +27,26 @@
     
     <!-- main body -->
     <div class="container-fluid">
-        <div class="row">
-
-            <!-- left sidebar -->
-            <div class="col-xs-12 col-md-2 bg-success">
-                Left Sidebar
-            </div>
-
-            <!-- main content -->
-            <div class="col-xs-12 col-md-8">
-                <p>
-                SEARCH FOR CONNECTIONS PAGE HERE
-                </p>
-            </div>
-
-            <!-- right sidebar -->
-            <div class="col-xs-12 col-md-2 bg-warning">
-                Right Sidebar
-            </div>
-            
+        <div class="row" id="search_header">
+            <h1>Search For Connections</h1>
         </div>
+
+        <div class="row justify-content-center">
+            <div class="input-group" style="width: 50%">
+                <input type="search" class="form-control rounded" 
+                placeholder="Enter a language or area of interest..." aria-label="Search"
+                    aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+        </div>
+
+        <div id="search_results" style="text-align:center">
+            THIS DIV WILL GENERATE CARDS FOR EACH USER
+        </div>
+            
     </div>
     
+
 
     <?php include "../res/modules/footer.php"; ?>
     <?php include '../res/modules/postscript.php'; ?>
