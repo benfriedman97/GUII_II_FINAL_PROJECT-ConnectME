@@ -89,7 +89,6 @@
                                     autocomplete="email"
                                     required >
                             <label for="floatingInput">Email address</label>
-                            <label for="floatingInput">Email address</label>
                         </div>
 
                         <!-- password -->
@@ -134,18 +133,11 @@
         $password = sanitize_input($_POST["_password"]);
 
         // MySQLi connection
-
-        $DB_servername = "localhost";
-        $DB_username   = "root";
-        $DB_password   = NULL;
-        $DB_name       = "userdb";
-
-        // Create connection
         
-        $connection = new mysqli($DB_servername, $DB_username, $DB_password, $DB_name);
+        $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
         // Check connection
-        if ($connection->connect_error) {
+        if ($connection->connect_error) {           
             die("Connection failed: " . $connection->connect_error);
         }
         consoleLog("Connected successfully\n");
@@ -158,21 +150,41 @@
         $sql_statement->bind_param("s", $email);
 
         $sql_statement->execute();
-        $result = $sql_statement->get_result();
-        $result = $result->fetch_assoc();
 
-        $connection->close();
+        $a = $sql_statement->store_result();
+        consoleLog("rows: " . $sql_statement->num_rows);
+        consoleLog($a);
+        $sql_statement->bind_result($result_user_id, 
+                                    $result_first_name,
+                                    $result_last_name,
+                                    $result_date_of_birth,
+                                    $result_address,
+                                    $result_city,
+                                    $result_state,
+                                    $result_account_type,
+                                    $result_univ_or_comp,
+                                    $result_email,
+                                    $result_password,
+                                    $result_is_verified,
+                                    $result_interests,
+                                    $result_validation_key
+                                    );
+      
+        $sql_statement->fetch();
 
-        if ($result["email"] === $email) {
+        $sql_statement->free_result();
+
+        if ($result_email === $email) {
             consoleLog("email matched: " . $email);
 
-            if ($result["password"] === $password) {
+            if ($result_password === $password) {
                 consoleLog("password matched: " . $password);
 
                 // set session variables
-                $_SESSION["current-user-email"]    = $result["email"];
-                $_SESSION["current-user-password"] = $result["password"];
-                $_SESSION["current-user-name"]     = $result["first_name"];
+                $_SESSION["current-user-email"]      = $result_email;
+                $_SESSION["current-user-password"]   = $result_password;
+                $_SESSION["current-user-first-name"] = $result_first_name;
+                $_SESSION["current-user-last-name"]  = $result_first_name;
                 $_SESSION["signed-in"] = true;
 
                 if (isset($_POST["_remember-me"])) {
@@ -186,11 +198,15 @@
                 // redirect to home page
                 echo '<script>window.location.replace("../res/scripts/system-signin.php?from=' . $_GET["from"] . '");</script>';
 
-            } else {
+            } 
+            else 
+            {
                 consoleLog("password not matched: " . $password);
                 systemLog($email . " failed login from IP address " . $_SERVER['REMOTE_ADDR']);
             }
-        } else {
+        } 
+        else
+        {
             consoleLog("email not matched: " . $email);
         }
     }
