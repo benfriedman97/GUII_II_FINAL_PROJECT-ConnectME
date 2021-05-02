@@ -4,7 +4,7 @@
 
 <?php
 
-date_default_timezone_set('GMT');
+date_default_timezone_set('America/New_York');
 function systemLog($msg) {
     $fp = fopen("../logs/log.txt","a+");
     $timestamp = "[" . date("Y-m-d H:i:s") . "] ";
@@ -17,17 +17,15 @@ systemLog($_SESSION["current-user-email"] . " signed out");
 // unset session variables
 unset($_SESSION["current-user-email"]);
 unset($_SESSION["current-user-password"]);
-unset($_SESSION["current-user-name"]);
+unset($_SESSION["current-user-first-name"]);
 $_SESSION["signed-in"] = false;
 
-// get post-signout redirect link
-$link = openssl_decrypt($_GET["from"], 
-                    "CAMELLIA-128-CBC", 
-                    "ConnectME", 0, 
-                    "1234567891011121");
+$link = 'http://' . $_SERVER["HTTP_HOST"] . 
+        base64_decode(str_pad(strtr($_GET["from"], '-_', '+/'), 
+        strlen($_GET["from"]) % 4, '=', STR_PAD_RIGHT));
 
 // redirect to link
-echo '<script>window.location.replace("../..' . $link . '");</script>';
+echo '<script>window.location.replace("' . $link . '");</script>';
 
 ?>
 

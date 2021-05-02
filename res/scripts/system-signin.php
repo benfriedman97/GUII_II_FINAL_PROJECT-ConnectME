@@ -4,7 +4,7 @@
 
 <?php
 
-date_default_timezone_set('GMT');
+date_default_timezone_set('America/New_York');
 function systemLog($msg) {
     $fp = fopen("../logs/log.txt","a+");
     $timestamp = "[" . date("Y-m-d H:i:s") . "] ";
@@ -26,17 +26,17 @@ if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
     }
 
     // encrypt information before sending cookie
-    $email_encrypted    = openssl_encrypt(  $_SESSION["current-user-email"]   , 
+    $email_encrypted    = openssl_encrypt(  $_SESSION["current-user-email"]     , 
                                             "AES-128-CTR", 
                                             "ConnectME", 0, 
                                             "1234567891011121");
 
-    $password_encrypted = openssl_encrypt(  $_SESSION["current-user-password"], 
+    $password_encrypted = openssl_encrypt(  $_SESSION["current-user-password"]  , 
                                             "AES-128-CTR", 
                                             "ConnectME", 0, 
                                             "1234567891011121");
 
-    $name_encrypted     = openssl_encrypt(  $_SESSION["current-user-name"]    , 
+    $name_encrypted     = openssl_encrypt(  $_SESSION["current-user-first-name"], 
                                             "AES-128-CTR", 
                                             "ConnectME", 0, 
                                             "1234567891011121");
@@ -52,14 +52,13 @@ if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
 
 }
 
-// get post-signin redirect link
-$link = openssl_decrypt($_GET["from"], 
-                        "CAMELLIA-128-CBC", 
-                        "ConnectME", 0, 
-                        "1234567891011121");
+// get post-signout redirect link
+$link = 'http://' . $_SERVER["HTTP_HOST"] . 
+        base64_decode(str_pad(strtr($_GET["from"], '-_', '+/'), 
+        strlen($_GET["from"]) % 4, '=', STR_PAD_RIGHT));
 
 // redirect to link
-echo '<script>window.location.replace("../../..' . $link . '");</script>';
+echo '<script>window.location.replace("' . $link . '");</script>';
 ?>
 
 </html>
