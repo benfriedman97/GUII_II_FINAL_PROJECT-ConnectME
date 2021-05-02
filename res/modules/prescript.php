@@ -2,7 +2,12 @@
 
 session_start();
 
-date_default_timezone_set('GMT');
+date_default_timezone_set('America/New_York');
+
+define("DB_SERVER"  , "localhost");
+define("DB_USERNAME", "root");
+define("DB_PASSWORD", NULL);
+define("DB_NAME"    , "userdb");
 
 // https://www.codegrepper.com/code-examples/php/console.log+in+php
 // consoleLog for PHP, credit to @Kaotik 03/07/2020 & @0nline 06/10/2020
@@ -52,9 +57,9 @@ if (isset($_COOKIE["auto-login"]) && !isset($_SESSION["signed-in"])) {
                                             "1234567891011121");
 
     // assign session variables
-    $_SESSION["current-user-email"]    = $email_decrypted   ;
-    $_SESSION["current-user-password"] = $password_decrypted;
-    $_SESSION["current-user-name"]     = $name_decrypted    ;
+    $_SESSION["current-user-email"]      = $email_decrypted   ;
+    $_SESSION["current-user-password"]   = $password_decrypted;
+    $_SESSION["current-user-first-name"] = $name_decrypted    ;
     $_SESSION["signed-in"] = true;
 
     systemLog($_SESSION["current-user-email"] . " signed in from IP address " . $_SERVER['REMOTE_ADDR'] . " via cookie");

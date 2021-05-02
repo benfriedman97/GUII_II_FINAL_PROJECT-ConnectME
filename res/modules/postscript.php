@@ -2,10 +2,9 @@
 
 // if a user is signed-in, add a welcome message
 if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
-    isset($_SESSION["current-user-name"]) ) {
+    isset($_SESSION["current-user-first-name"]) ) {
 
     $msg; // custom message based on the time of day
-    date_default_timezone_set("America/New_York");
     $hour = date("H");
     if ($hour < 12) { 
         $msg = "Good Morning, "  ;
@@ -18,17 +17,14 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
     }
 
     // generate redirect link for post-signout
-    $link = openssl_encrypt($_SERVER["REQUEST_URI"], 
-                        "CAMELLIA-128-CBC", 
-                        "ConnectME", 0, 
-                        "1234567891011121"); 
+    $link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
 
     // replace the sign-in button and add welcome message
     echo ' 
     <script>
         $(".welcome_message").replaceWith(" \\
             <span class=\\"align-middle\\" style=\\"font-size:150%\\"> \\
-                ' . $msg . $_SESSION["current-user-name"] . ' \\
+                ' . $msg . $_SESSION["current-user-first-name"] . ' \\
             </span> \\
         ");
 
@@ -42,8 +38,8 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
     echo '");
         $("#navbar-title").attr("style", "color:white");
 
-        $("button").toggleClass("btn-dark");
-        $("button").toggleClass("btn-light");
+        $("nav button").toggleClass("btn-dark");
+        $("nav button").toggleClass("btn-light");
 
 
         $("nav > div > div > div > button").toggleClass("btn-dark");
@@ -57,10 +53,6 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
                 <img class=\\"align-middle\\" src=\\"../res/images/account.png\\" width=\\"50px\\" /> \\
             </a> \\
         ");
-
-
-
-
     </script>
     ';
 }

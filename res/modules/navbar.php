@@ -2,14 +2,11 @@
 <?php
 
 // generate redirect link for post-signin
-$link = openssl_encrypt($_SERVER["REQUEST_URI"], 
-                        "CAMELLIA-128-CBC", 
-                        "ConnectME", 0, 
-                        "1234567891011121"); 
+$link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
                         
 ?>
     <!-- navbar -->
-    <nav class="navbar bg-primary">
+    <nav class="navbar fixed-top bg-primary">
 
             <!-- offcanvas -->
             <div class="col-xs-12 col-md-4">
@@ -107,3 +104,5 @@ $link = openssl_encrypt($_SERVER["REQUEST_URI"],
                 </a>
             </div>
     </nav>
+
+    <br /><br /><hr />
