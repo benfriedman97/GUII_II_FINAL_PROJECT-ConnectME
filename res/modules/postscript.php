@@ -41,6 +41,7 @@ if (isset($_SESSION["signed-in"]) && $_SESSION["signed-in"] === true &&
         $("nav button").toggleClass("btn-dark");
         $("nav button").toggleClass("btn-light");
 
+        $("#networking").attr("href", "user_account_main.php");
 
         $("nav > div > div > div > button").toggleClass("btn-dark");
         $("nav > div > div > div > button").toggleClass("btn-light");
