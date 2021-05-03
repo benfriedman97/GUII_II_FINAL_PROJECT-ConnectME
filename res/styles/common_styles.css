@@ -20,9 +20,26 @@ html { /* global behavior */
     scroll-behavior: smooth;
 }
 
-body { /* global font */
-    font-family: 'Palatino linotype', 'Times new roman', sans-serif;
+@media screen and (min-width: 1365px) {
+    body { 
+        padding-top: 80px; 
+        font-family: 'Palatino linotype', 'Times new roman', sans-serif;
+    }
 }
+@media screen and (max-width: 1365px) and (min-width: 770px) {
+    body { 
+        padding-top: 100px;
+        font-family: 'Palatino linotype', 'Times new roman', sans-serif;
+    }
+}
+@media screen and (max-width: 770px) and (min-width: 0px) {
+    body { 
+        padding-top: 180px; 
+        font-family: 'Palatino linotype', 'Times new roman', sans-serif;
+    }
+}
+
+
 
 a { /* modify apperance */
     color: inherit;
