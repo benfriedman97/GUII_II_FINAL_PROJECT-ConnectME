@@ -19,7 +19,7 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
 
-<?php include '../res/modules/prescript.php'; ?>
+  <?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 
@@ -184,8 +184,10 @@
                 $_SESSION["current-user-email"]      = $result_email;
                 $_SESSION["current-user-password"]   = $result_password;
                 $_SESSION["current-user-first-name"] = $result_first_name;
-                $_SESSION["current-user-last-name"]  = $result_first_name;
+                $_SESSION["current-user-last-name"]  = $result_last_name;
                 $_SESSION["signed-in"] = true;
+                $_SESSION["current-user-interests"] = $result_interests;
+                $_SESSION["current-user-account-type"] = $result_account_type;
 
                 if (isset($_POST["_remember-me"])) {
                     $_SESSION["_remember-me"] = true;    
