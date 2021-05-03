@@ -43,40 +43,47 @@
             </div>
 
             <!-- main content -->
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
+<div class="col-xs-12 col-sm-12 col-md-8">
+<div class="row">
+
+            <div class="col-4">
+                <div class="card" style="width:100%">
                     <img class="card-img-top" src="../res/images/joe_headshot.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Joseph Calles</h5>
                         <p class="card-text">Joe is a senior computer science student at UMass Lowell.
                         </p>
-                        <a href="https://github.com/TammyLiuXD" class="btn btn-primary">Github</a>
+                        <a href="https://github.com/JStar-C" class="btn btn-primary">Github</a>
+                        <a href="https://www.linkedin.com/in/josephcalles/" class="btn btn-primary">LinkedIn</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
+            <div class="col-4">
+                <div class="card" style="width:100%">
                     <img class="card-img-top" src="../res/images/tammy_headshot.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Tammy Liu</h5>
                         <p class="card-text">Tammy is a senior computer science student at UMass Lowell.
                         </p>
-                        <a href="https://github.com/JStar-C" class="btn btn-primary">Github</a>
+                        <a href="https://github.com/TammyLiuXD" class="btn btn-primary">Github</a>
+                        <a href="https://www.linkedin.com/in/tammyyliu/" class="btn btn-primary">LinkedIn</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
+            <div class="col-4">
+                <div class="card" style="width:100%">
                     <img class="card-img-top" src="../res/images/ben_headshot.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Benjamin Friedman</h5>
                         <p class="card-text">Ben is a junior computer science student at UMass Lowell.</p>
                         <a href="https://github.com/benjamin-friedman" class="btn btn-primary">Github</a>
+                        <a href="https://www.linkedin.com/in/ben-friedman/" class="btn btn-primary">LinkedIn</a>
                     </div>
                 </div>
             </div>
+            </div></div>
 
             <!-- right sidebar -->
             <div class="col-xs-12 col-sm-12 col-md-2">

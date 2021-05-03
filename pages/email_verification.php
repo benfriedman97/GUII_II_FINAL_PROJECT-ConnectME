@@ -27,6 +27,35 @@
 
 <head>
     <?php include "../res/modules/header.php"; ?>
+
+    <!-- page-specific style -->
+    <style>
+
+    .verification-success {
+        font-size:200%;
+        background-color:lime;
+        box-shadow: 0px 0px 10px lime;
+        width:45%;
+        color:white;
+    }
+
+    .verification-failure {
+        font-size:200%;
+        background-color:red;
+        box-shadow: 0px 0px 10px red;
+        width:45%;
+        color:white;
+    }
+
+    .verification-uneeded {
+        font-size:200%;
+        background-color:blue;
+        box-shadow: 0px 0px 10px blue;
+        width:45%;
+        color:white;
+    }
+    
+    </style>
 </head>
 
 <body>
@@ -38,20 +67,20 @@
         <div class="row">
 
             <!-- left sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-success">
-                Left Sidebar
+            <div class="col-xs-12 col-sm-12 col-md-2">
+                <?php display_random_ad(); ?>
             </div>
 
             <!-- main content -->
             <div class="col-xs-12 col-sm-12 col-md-8">
-                <p>
-                    VERIFICATION
-                </p>
+                <center id="verification-placeholder">
+
+                </center>
             </div>
 
             <!-- right sidebar -->
-            <div class="col-xs-12 col-sm-12 col-md-2 bg-warning">
-                Right Sidebar
+            <div class="col-xs-12 col-sm-12 col-md-2">
+                <?php display_random_ad(); ?>
             </div>
             
         </div>
@@ -60,13 +89,95 @@
     <?php include "../res/modules/footer.php"; ?>
 
     <?php
-    
-        if(isset($_GET["encoded-email"]))
-        {
-            $email = urldecode($_GET["encoded-email"]);
-            echo $email;
-        }
 
+        if(isset($_GET["encoded-email"]) && isset($_GET["key"]))
+        {
+            
+            $email = urldecode($_GET["encoded-email"]); 
+            $key = urldecode($_GET["key"]);
+
+            $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+            // Check connection
+            if ($connection->connect_error) {           
+                die("Connection failed: " . $connection->connect_error);
+            }
+            consoleLog("Connected successfully\n");
+
+            $sql_statement = $connection->prepare('
+            SELECT * 
+            FROM user_information 
+            WHERE validation_key=? and email=?
+            ');
+            $sql_statement->bind_param('ss', $key, $email);
+
+            $sql_statement->execute();
+            $sql_statement->store_result();
+            //$result = $sql_statement->get_result();
+            //$result = $result->fetch_assoc();
+
+            if($sql_statement->num_rows > 0)
+            {
+                $sql_statement = $connection->prepare('
+                UPDATE user_information 
+                SET is_verified=1
+                WHERE validation_key=? and email=?
+                ');
+                $sql_statement->bind_param('ss', $key, $email);
+
+                $sql_statement->execute();
+
+                if($sql_statement->affected_rows === 1)
+                {
+                    echo '
+                    <script>
+                        $("#verification-placeholder").html("   \\
+                            <div class=\"verification-success\"> \\
+                                Email Verified!                   \\
+                            </div>                                 \\
+                        ");
+                    </script>';
+                }
+                else
+                {
+                    echo '
+                    <script>
+                        $("#verification-placeholder").html("    \\
+                            <div class=\"verification-uneeded\">  \\
+                                Email already verified             \\
+                            </div>                                  \\
+                        ");
+                    </script>';
+                }
+            }
+            else
+            {
+                echo "2";
+                echo '
+                <script>
+                    $("#verification-placeholder").html("   \\
+                        <div class=\"verification-failure\"> \\
+                            Email verification failed!        \\
+                        </div>                                 \\
+                        <p>please contact the admins for more information</p> \\
+                    ");
+                </script>';
+            }
+            
+        }
+        else
+        {
+            echo "3";
+            echo '
+            <script>
+                $("#verification-placeholder").html("   \\
+                    <div class=\"verification-failure\"> \\
+                        Email verification failed!        \\
+                    </div>                                 \\
+                    <p>please contact the admins for more information</p> \\
+                ");
+            </script>';
+        }
     ?>
 
     <?php include '../res/modules/postscript.php'; ?>

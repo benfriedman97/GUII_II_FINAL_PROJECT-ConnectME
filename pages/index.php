@@ -44,9 +44,52 @@
 
             <!-- main content -->
             <div class="col-xs-12 col-md-8">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatum numquam error ad iure voluptatibus quas a est iste ullam consequatur omnis, eveniet porro commodi quidem cumque quisquam odio necessitatibus, doloribus eaque fuga tempore perspiciatis magnam fugiat! Quos doloribus necessitatibus tempora rerum molestiae, dolorem quae consectetur. Quos placeat suscipit dicta, excepturi vel consequatur similique reiciendis repudiandae eos est incidunt modi ea dolores omnis rerum! Commodi, molestiae. Ullam rem quia excepturi aperiam quod ea architecto placeat cupiditate voluptatem fugit hic neque, consequuntur qui nam! Temporibus harum at omnis minus sint aliquid nihil sapiente nisi illo iure perspiciatis, eaque consequuntur sed, qui minima deserunt suscipit architecto vero? Quidem quaerat commodi explicabo modi provident! Nostrum, nam doloremque amet sint saepe perferendis quisquam officia quasi eligendi voluptatem quo temporibus iure vero minima. Dicta voluptatem nulla voluptatibus fuga fugit, officiis perspiciatis quasi natus voluptas, commodi deserunt velit magni obcaecati ipsam similique quam. Explicabo placeat voluptatum labore voluptate, expedita delectus temporibus necessitatibus quaerat. Exercitationem quis fugiat eos quia reiciendis culpa impedit odit cum quaerat, molestiae non sit voluptates ea nobis. Labore nesciunt ullam cumque voluptas accusamus molestias quae unde. Incidunt, ad nesciunt officia porro blanditiis a odit. Accusantium aut natus maxime fuga vitae cupiditate labore, harum quis illo aspernatur eius amet voluptas aliquid, consectetur sed molestiae. Dolore esse expedita earum sit dolores quaerat eius quo rem fuga, perferendis aut laboriosam architecto quod, ducimus sapiente et quae, consectetur nihil aspernatur. Odio quaerat natus doloremque dolores nisi. Corrupti molestiae animi accusantium distinctio nam nostrum temporibus inventore dolore. Doloribus dolore, natus, a, accusantium earum veniam nam fugit laborum consectetur exercitationem deserunt repellendus ipsam. Officia in veniam esse illum consequuntur beatae quo architecto deleniti obcaecati, ea saepe dicta repellat similique voluptates nesciunt animi aliquam adipisci quae error illo velit quam quas quisquam. Eaque vel incidunt optio nostrum suscipit neque, explicabo et possimus sequi alias architecto totam ipsa, voluptate molestias. Illum molestiae provident nihil delectus cupiditate, ipsam eum repudiandae? Dolore eligendi aliquam temporibus illum cupiditate eum modi, ipsum nisi ipsa minus hic quia voluptates in vel ducimus assumenda? Asperiores consectetur, dolore quae sequi voluptatibus beatae eligendi exercitationem qui magnam suscipit accusamus odio tempore temporibus. Harum nam officia quo omnis ullam eligendi aut inventore odit cumque reiciendis unde rerum quaerat reprehenderit ducimus suscipit provident, delectus quasi libero adipisci, voluptatem dicta commodi, ad tempora! A voluptates quis reprehenderit ipsam totam, modi sint deleniti molestiae veritatis temporibus, asperiores perferendis vel. Dolorem inventore suscipit laboriosam architecto vitae maxime eligendi eveniet libero! Corrupti dignissimos, nemo ipsa eaque pariatur ab laboriosam deserunt nam sed adipisci blanditiis quaerat commodi ratione perferendis aliquid cupiditate asperiores aspernatur sit quo ipsam? Tenetur deserunt reprehenderit aspernatur sed doloremque. Error corrupti non placeat ea, esse hic, impedit commodi porro voluptate sequi expedita quidem enim, officia tempore libero nemo beatae. Accusamus molestiae, possimus at eos fugit ab exercitationem architecto obcaecati quo, dignissimos voluptatum unde recusandae eveniet, earum atque quisquam. Commodi repellat veritatis ratione. Rem eos ipsa dolores dolorem non, unde maiores aperiam quaerat temporibus blanditiis cupiditate officiis optio iure iste nisi beatae! Non, ratione!
-                </p>
+                <div class="p-4 mb-4 bg-secondary rounded-3">
+                    <div class="container-fluid py-5">
+                        <div class="row">
+                            <div class="col-8">
+                            <br><br>
+                                <h1 class="display-5 fw-bold">Welcome to ConnectME</h1>
+                                <p class="fs-4">&emsp;Where we're connecting <i>you</i> to everyone.</p>
+                            </div>
+                            <div class="col-4">
+                                <img src="../res/images/icon.webp" width="200px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div>
+                    <h2>Mission Statement</h2>
+                    <p style="font-size:120%;">
+                        Our mission is to be more than just another career center —our mission is to connect students to professional resources beyond the network of their own university. This website was originally conceived as a term project for Graphical User Interface Programming II at the University of Massachusetts —Lowell (UML). It is implemented mostly in PHP with significant parts of HTML and Javascript. This website is hosted by UML at weblab.cs.uml.edu.
+                    </p>
+                </div>
+
+                <br/> <hr/> <br/>
+
+                <div>
+                    <h2 style="padding-left:10%">Getting Started With Us</h2>
+                    <p style="padding-left:10%">
+                        <ul style="list-style-type:none;padding-left:10%;font-size:120%;">
+                            <li>Step 1: create an account with us</li>
+                            <li>Step 2: setup your profile and upload your resume</li>
+                            <li>Step 3: search for mentors, experts, classmates, professors, etc. and add them to your network</li>
+                            <li>Step 4: send them a message to introduce yourself and strike up a conversation</li>
+                            <li>Step 5: utilize the resources on ConnectME
+                                <ul style="padding-left:5%;list-style-type:square;">
+                                    <li>read articles under our industry page</li>
+                                    <li>try out our practice problems</li>
+                                    <li>ask to schedule a mock-interview with one of your mentors</li>
+                                    <li>look-up job opportunities on search engine</li>
+                                </ul>
+                            
+                            </li>
+                        </ul>
+                    </p>
+                </div>
             </div>
 
             <!-- right sidebar -->
@@ -67,6 +110,8 @@
     </script>
 
     <?php include '../res/modules/postscript.php'; ?>
+
+<body>
 
 </body>
 
