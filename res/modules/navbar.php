@@ -6,7 +6,7 @@ $link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
                         
 ?>
     <!-- navbar -->
-    <nav class="navbar fixed-top bg-primary">
+    <nav class="navbar bg-primary">
 
             <!-- offcanvas -->
             <div class="col-xs-12 col-md-4">
@@ -104,5 +104,3 @@ $link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
                 </a>
             </div>
     </nav>
-
-    <br /><br /><hr />
