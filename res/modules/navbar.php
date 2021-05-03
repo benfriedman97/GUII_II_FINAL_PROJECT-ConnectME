@@ -3,10 +3,10 @@
 
 // generate redirect link for post-signin
 $link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
-                        
+
 ?>
     <!-- navbar -->
-    <nav class="navbar bg-primary">
+    <nav class="navbar fixed-top bg-primary">
 
             <!-- offcanvas -->
             <div class="col-xs-12 col-md-4">
@@ -55,14 +55,14 @@ $link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="networking.php" class="nav-link rounded">
+                                <a id="networking" href="notice.php" class="nav-link rounded">
                                     <i class="bi bi-bounding-box"></i>&emsp;Networking
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="getting_started.php" class="nav-link">
+                               <!-- <a href="getting_started.php" class="nav-link">
                                     <i class="bi bi-align-start"></i>&emsp;Getting started
-                                </a>
+                                </a>-->
                             </li>
                             <li class="nav-item">
                                 <a href="contact.php" class="nav-link">
@@ -104,3 +104,4 @@ $link = rtrim(strtr(base64_encode($_SERVER["PHP_SELF"]), '+/', '-_'), '=');
                 </a>
             </div>
     </nav>
+    
