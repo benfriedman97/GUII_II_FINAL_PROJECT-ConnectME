@@ -43,8 +43,8 @@
                     </div>
                     <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                     <div class="text-center text-sm-left mb-2 mb-sm-0">
-                        <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Benjamin Friedman</h4>
-                        <p class="mb-0">benjamin_friedman@student.uml.edu</p>
+                        <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"><?php echo $_SESSION['current-user-first-name'] . ' ' . $_SESSION['current-user-last-name']; ?></h4>
+                        <p class="mb-0"><?php echo $_SESSION['current-user-email']; ?></p>
                         
                         <div class="mt-2">
                         <button class="btn btn-primary" type="button">
@@ -52,10 +52,6 @@
                             <span>Change Photo</span>
                         </button>
                         </div>
-                    </div>
-                    <div class="text-center text-sm-right">
-                        <span class="badge badge-secondary">Student</span>
-                        <div class="text-muted"><small>Date Joined Here</small></div>
                     </div>
                     </div>
                 </div>
@@ -71,13 +67,13 @@
                             <div class="col">
                                 <div class="form-group">
                                 <label>First Name</label>
-                                <input class="form-control" type="text" name="name" placeholder="Benjamin" value="Benjamin">
+                                <input class="form-control" type="text" name="name" placeholder=<?php echo $_SESSION['current-user-first-name']; ?> value=<?php echo $_SESSION['current-user-first-name']; ?>>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                 <label>Last Name</label>
-                                <input class="form-control" type="text" name="name" placeholder="Friedman" value="Friedman">
+                                <input class="form-control" type="text" name="name" placeholder=<?php echo $_SESSION['current-user-last-name']; ?> value=<?php echo $_SESSION['current-user-last-name']; ?>>
                                 </div>
                             </div>
                             
@@ -86,15 +82,15 @@
                             <div class="col">
                                 <div class="form-group">
                                 <label>Email</label>
-                                <input class="form-control" type="text" placeholder="benjamin_friedman@student.uml.edu">
+                                <input class="form-control" type="text" placeholder=<?php echo $_SESSION['current-user-email']; ?>>
                                 </div>
                             </div>
                             </div>
                             <div class="row">
                             <div class="col mb-3">
                                 <div class="form-group">
-                                <label>About</label>
-                                <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
+                                <label>Programming Languages/Areas of Interest</label>
+                                <textarea class="form-control" rows="5" placeholder=<?php echo $_SESSION['current-user-interests']; ?>></textarea>
                                 </div>
                             </div>
                             </div>
@@ -107,7 +103,7 @@
                             <div class="col">
                                 <div class="form-group">
                                 <label>Current Password</label>
-                                <input class="form-control" type="password" placeholder="••••••">
+                                <input class="form-control" type="password">
                                 </div>
                             </div>
                             </div>
@@ -115,7 +111,7 @@
                             <div class="col">
                                 <div class="form-group">
                                 <label>New Password</label>
-                                <input class="form-control" type="password" placeholder="••••••">
+                                <input class="form-control" type="password">
                                 </div>
                             </div>
                             </div>
@@ -123,7 +119,7 @@
                             <div class="col">
                                 <div class="form-group">
                                 <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
-                                <input class="form-control" type="password" placeholder="••••••"></div>
+                                <input class="form-control" type="password"></div>
                             </div>
                             </div>
                         </div>
