@@ -27,6 +27,15 @@
 
 <head>
     <?php include "../res/modules/header.php"; ?>
+
+    <style>
+
+    #response-placeholder {
+        color: blue;
+        font-size: 125%;
+    }
+
+    </style>
 </head>
 
 <body>
@@ -44,9 +53,45 @@
 
             <!-- main content -->
             <div class="col-xs-12 col-sm-12 col-md-8">
-                <p>
-                    CONTACT
-                </p>
+                <div class="container">
+
+                    <h2> Contact Us </h2>
+                    <p> Thank you for visiting our website. If you have any questions or suggestion to improving this site, please fill in the form below. We will respond as soon as possible. :) </p>
+                    
+                    <form class="mycontactform" action="" method="POST">
+                    
+                        <div class="row">
+
+                            <div class="col-2" style="text-align:right">
+                                <label> First Name: </label><br><br>
+                                <label> Last Name: </label><br><br>
+                                <label> Email: </label><br><br>
+                                <label> Message: </label>
+                            </div>
+
+                            <div class="col-8">
+                                <input type="text" name="firstName" size="30"><br><br>
+                                <input type="text" name="lastName" size="30"><br><br>
+                                <input type="email" name="Email" size="30"><br><br>
+                                <textarea name="Message" rows="5" cols="30" style="resize:both;overflow:auto;"></textarea>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="row ">
+                            <div class="col-2"></div>
+                            <div class="col-2">
+                                    <button type="submit" name="Submit" style="width:100px"> Submit </button>
+                            </div>
+                            <div class="col-8">
+                                <span id="response-placeholder"></span>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
             </div>
 
             <!-- right sidebar -->
@@ -65,6 +110,74 @@
             $("#menu-items li:nth-child(6) a").addClass("active");
         });
     </script>
+
+    <?php
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST")
+        {
+
+            $API_key = "37afb2f16emshf22ae9f0723de04p1fe4e6jsnc56de77759a5";
+
+            $email      = sanitize_input($_POST["Email"    ]);
+            $first_name = sanitize_input($_POST["firstName"]);
+            $last_name  = sanitize_input($_POST["lastName" ]);
+            $body       = sanitize_input($_POST["Message"  ]);
+
+            $to = rawurlencode('joseph_calles@student.uml.edu');
+            $from = rawurlencode(str_replace('@', '-at-', $email));
+            $subject = rawurlencode('Message from ' . $first_name . ' ' . $last_name);
+            $txt_msg = rawurlencode($body);
+
+            consoleLog($to);
+            consoleLog($from);
+            consoleLog($subject);
+            consoleLog($txt_msg);
+            consoleLog("https://email-sender1.p.rapidapi.com/?txt_msg=" . $txt_msg . "&to=" . $to . "&from=" . $from . "&subject=" . $subject);
+
+            $curl = curl_init();
+            // PART 2 : send verification email
+            // ----------------------------------------------------------------
+            // https://rapidapi.com/darkmanaminovic/api/email-sender1
+
+            // prepare API request to to send verification email
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://email-sender1.p.rapidapi.com/?txt_msg=" . $txt_msg . "&to=" . $to . "&from=" . $from . "&subject=" . $subject,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_HTTPHEADER => [
+                    "x-rapidapi-host: email-sender1.p.rapidapi.com",
+                    "x-rapidapi-key: " . $API_key
+                ],
+            ]);
+
+            // execute cURL request 
+            $response = json_decode(curl_exec($curl));
+            $err = curl_error($curl);
+
+            // check for errors and print messages 
+            if ($err) {
+                echo '
+                <script>
+                    $("#response-placeholder").text("Message not sent, ' . $err . '");
+                </script>
+                ';
+            } else {
+                echo '
+                <script>
+                    $("#response-placeholder").text("Message sent");
+                </script>
+                ';
+            }
+
+            curl_close($curl);
+        }
+
+    ?>
 
     <?php include '../res/modules/postscript.php'; ?>
 
