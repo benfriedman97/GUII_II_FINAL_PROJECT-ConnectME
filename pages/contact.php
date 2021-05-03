@@ -116,7 +116,7 @@
         if ($_SERVER["REQUEST_METHOD"] === "POST")
         {
 
-            $API_key = "37afb2f16emshf22ae9f0723de04p1fe4e6jsnc56de77759a5";
+            $API_key = "REMOVED";
 
             $email      = sanitize_input($_POST["Email"    ]);
             $first_name = sanitize_input($_POST["firstName"]);
