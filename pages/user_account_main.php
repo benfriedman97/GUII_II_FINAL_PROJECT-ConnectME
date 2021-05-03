@@ -48,8 +48,8 @@
             </div>
 
             <div class="col" id="name_email">
-                <h5 class="text-center" style="color:black">Name: (will display here)</h4>
-                <h5 class="text-center" style="color:black">Email: (will dipslay here)</h4>
+                <h6 class="text-center" style="color:black">Name: Benjamin Friedman</h4>
+                <h6 class="text-center" style="color:black">Email: benjamin_friedman@student.uml.edu</h4>
             </div>
             <div class="col">
                 <h4 class="text-center" id="edit_user_profile" style="color:black">
@@ -60,12 +60,11 @@
 
         <div class="row p-3">
             <div class="col-3">
-                <h6 class="text-center">CONNECT</h6>
-                <p class="text-center">with others</p>
+                <h6 class="text-center">CURRENT</h6>
+                <p class="text-center">Connections</p>
             </div>
             <div class="col-6">
-                Start a chat, begin a video conference, and connect with your friends
-                and mentors
+                View your current connections.
             </div>
             <div class="col-3">
             <button type="button" class="btn btn-primary btn-lg">
@@ -76,11 +75,11 @@
 
         <div class="row p-3">
             <div class="col-3">
-                <h6 class="text-center">BROWSE</h6>
-                <p class="text-center">resources</p>
+                <h6 class="text-center">PENDING</h6>
+                <p class="text-center">Connections</p>
             </div>
             <div class="col-6">
-                View articles and resources, keep up with the latest in computer science
+                View your pending connections.
             </div>
             <div class="col-3">
             <button type="button" class="btn btn-primary btn-lg">BROWSE</button>
@@ -89,11 +88,11 @@
 
         <div class="row p-3">
             <div class="col-3">
-                <h6 class="text-center">EXPLORE</h6>
-                <p class="text-center">profiles</p>
+                <h6 class="text-center">NEW</h6>
+                <p class="text-center">Connections</p>
             </div>
             <div class="col-6">
-                Find new connections and explore profiles
+                Search for new connections.
             </div>
             <div class="col-3">
             <button type="button" class="btn btn-primary btn-lg">
@@ -104,11 +103,11 @@
 
         <div class="row p-3">
             <div class="col-3">
-                <h6 class="text-center">CREATE</h6>
+                <h6 class="text-center">SHARE</h6>
                 <p class="text-center">projects</p>
             </div>
             <div class="col-6">
-                Create projects and share them with your mentors for review
+                Share projects for code review.
             </div>
             <div class="col-3">
             <button type="button" class="btn btn-primary btn-lg">CREATE</button>
