@@ -36,7 +36,7 @@ if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
                                             "ConnectME", 0, 
                                             "1234567891011121");
 
-    $name_encrypted     = openssl_encrypt(  $_SESSION["current-user-first-name"], 
+    $user_id_encrypted     = openssl_encrypt(  $_SESSION["current-user-user-id"], 
                                             "AES-128-CTR", 
                                             "ConnectME", 0, 
                                             "1234567891011121");
@@ -45,7 +45,7 @@ if (isset($_SESSION["_remember-me"]) && $_SESSION["_remember-me"] === true &&
     setcookie("auto-login", 
         $email_encrypted . "/" . 
         $password_encrypted . "/" . 
-        $name_encrypted, 
+        $user_id_encrypted, 
         time() + 86400, "/", "", 0);
 
     systemLog("set auto-login cookie for " . $_SESSION["current-user-email"] . " at IP address " . $_SERVER['REMOTE_ADDR']);
