@@ -90,7 +90,7 @@
                             <div class="col mb-3">
                                 <div class="form-group">
                                 <label>Programming Languages/Areas of Interest</label>
-                                <textarea class="form-control" rows="5" placeholder=<?php echo $_SESSION['current-user-interests']; ?>></textarea>
+                                <textarea class="form-control" rows="5"></textarea>
                                 </div>
                             </div>
                             </div>
