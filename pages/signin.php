@@ -57,6 +57,12 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+
+        #error-placeholder {
+            color:red;
+            font-size:120%;
+        }
+
     </style>
 
 </head>
@@ -78,6 +84,8 @@
                         <!-- header -->
                         <img class="mb-4" src="../res/images/icon.webp" alt="" width="100">
                         <h1 class="h3 mb-3 fw-normal">Sign in</h1>
+
+                        <span id="error-placeholder"></span>
 
                         <!-- email -->
                         <div class="form-floating">
@@ -212,13 +220,21 @@
             } 
             else 
             {
-                consoleLog("password not matched: " . $password);
+                echo '
+                <script>
+                    $("#error-placeholder").text("error: password is incorrect.");
+                </script>
+                ';
                 systemLog($email . " failed login from IP address " . $_SERVER['REMOTE_ADDR']);
             }
         } 
         else
         {
-            consoleLog("email not matched: " . $email);
+                echo '
+                <script>
+                    $("#error-placeholder").text("error: email not found.");
+                </script>
+                ';
         }
     }
 
