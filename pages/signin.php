@@ -184,7 +184,7 @@
                 // set session variables
                 $_SESSION["current-user-user-id"]        = $result_user_id;
                 $_SESSION["current-user-first-name"]     = $result_first_name;
-                $_SESSION["current-user-last-name"]      = $result_first_name;
+                $_SESSION["current-user-last-name"]      = $result_last_name;
                 $_SESSION["current-user-date-of-birth"]  = $result_date_of_birth;
                 $_SESSION["current-user-address"]        = $result_address;
                 $_SESSION["current-user-city"]           = $result_city;

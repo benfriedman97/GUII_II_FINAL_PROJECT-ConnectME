@@ -34,9 +34,9 @@
     <?php include "../res/modules/navbar.php"; ?>
 
     <!-- main body -->
-    <div class="container-fluid">
-        
-    </div>
+<?php
+
+?>
 
     <?php include "../res/modules/footer.php"; ?>
 

@@ -1,5 +1,4 @@
-
-  <?php include '../res/modules/prescript.php'; ?>
+<?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +116,9 @@
     
 
     <?php include "../res/modules/footer.php"; ?>
+
     <?php include '../res/modules/postscript.php'; ?>
+
 </body>
+
 </html>

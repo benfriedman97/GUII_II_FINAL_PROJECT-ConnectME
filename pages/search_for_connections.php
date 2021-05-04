@@ -77,7 +77,7 @@
                 echo '<p style="text-align:center">Something must be entered in the search bar</p>';
             }
             else {
-                $current_user_id = $_SESSION['current-user-id'];
+                $current_user_id = $_SESSION['current-user-user-id'];
             ?>
             <script>console.log("hello");</script>
             <?php

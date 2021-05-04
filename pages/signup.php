@@ -19,15 +19,13 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
 
-  <?php include '../res/modules/prescript.php'; ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<?php include '../res/modules/prescript.php'; ?>
 
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
     <?php include "../res/modules/header.php"; ?>
 
     <style>
@@ -104,15 +102,16 @@
             color:red;
         }
     </style>
+
 </head>
+
 <body>
+
     <?php include "../res/modules/navbar.php"; ?>
 
+    <?php include "../res/scripts/send_email_verification.php"; ?>
 
     <?php
-
-
-// MySQLi connection
 
 // validate input
     // initialize variables
@@ -123,13 +122,10 @@
     $univ_or_comp_error = $email_error = $password_error = $repeat_password_error = $interests_error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //$servername = "localhost";
-    //$username   = "root";
-    //$password   = NULL;
-    //$dbname     = "userdb";
-    $userdb_connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-    if ($userdb_connection->connect_error) {
 
+    $userdb_connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+    if ($userdb_connection->connect_error) {
         die("Connection failed:" . $userdb->connect_error);
     }
 
@@ -250,11 +246,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $interests = cleanup_input2($_POST["interests"]);
     }
 
+    $validation_key = generate_key();
+
     if ($valid_input == true) {
         
         $stmt->execute();
         $stmt->close();
         $userdb_connection->close();
+
+        send_email_verification($email, $first_name, $validation_key);
         ?>
         <script type="text/javascript">
             window.location = "signup_success.php";
@@ -269,27 +269,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 }
 
-// removes spaces
-function cleanup_input1($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-// doesn't remove spaces
-function cleanup_input2($data) {
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+    // removes spaces
+    function cleanup_input1($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    // doesn't remove spaces
+    function cleanup_input2($data) {
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
 ?>
     
-
-
-
-
-    
-
     <div class="container text-center">
         <div class="p-4 mb-4 bg-light rounded-3">
             <div class="container-fluid py-7">
@@ -435,13 +430,8 @@ function cleanup_input2($data) {
 
     <?php include "../res/modules/footer.php"; ?>
 
-
-
-
-
-
-
-
     <?php include '../res/modules/postscript.php'; ?>
+
 </body>
+
 </html>

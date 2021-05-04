@@ -44,7 +44,7 @@
 
             <!-- main content -->
             <div class="col-xs-12 col-md-8">
-                <div class="p-4 mb-4 bg-secondary rounded-3">
+                <div class="p-4 mb-4 bg-light rounded-3">
                     <div class="container-fluid py-5">
                         <div class="row">
                             <div class="col-8">
