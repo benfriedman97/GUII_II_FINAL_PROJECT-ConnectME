@@ -19,7 +19,7 @@
         x integrate backend and php server
   -- ---------------------------------------------------------------------- -->
 
-  <?php include '../res/modules/prescript.php'; ?>
+<?php include '../res/modules/prescript.php'; ?>
 
 <!DOCTYPE html>
 
@@ -151,9 +151,8 @@
 
         $sql_statement->execute();
 
-        $a = $sql_statement->store_result();
-        consoleLog("rows: " . $sql_statement->num_rows);
-        consoleLog($a);
+        $sql_statement->store_result();
+
         $sql_statement->bind_result($result_user_id, 
                                     $result_first_name,
                                     $result_last_name,
@@ -174,6 +173,8 @@
 
         $sql_statement->free_result();
 
+        $connection->close();
+
         if ($result_email === $email) {
             consoleLog("email matched: " . $email);
 
@@ -181,13 +182,21 @@
                 consoleLog("password matched: " . $password);
 
                 // set session variables
-                $_SESSION["current-user-email"]      = $result_email;
-                $_SESSION["current-user-password"]   = $result_password;
-                $_SESSION["current-user-first-name"] = $result_first_name;
-                $_SESSION["current-user-last-name"]  = $result_last_name;
+                $_SESSION["current-user-user-id"]        = $result_user_id;
+                $_SESSION["current-user-first-name"]     = $result_first_name;
+                $_SESSION["current-user-last-name"]      = $result_first_name;
+                $_SESSION["current-user-date-of-birth"]  = $result_date_of_birth;
+                $_SESSION["current-user-address"]        = $result_address;
+                $_SESSION["current-user-city"]           = $result_city;
+                $_SESSION["current-user-state"]          = $result_state;
+                $_SESSION["current-user-account-type"]   = $result_account_type;
+                $_SESSION["current-user-univ-or-comp"]   = $result_univ_or_comp;
+                $_SESSION["current-user-email"]          = $result_email;
+                $_SESSION["current-user-password"]       = $result_password;
+                $_SESSION["current-user-is-verified"]    = $result_is_verified;
+                $_SESSION["current-user-interests"]      = $result_interests;
+                $_SESSION["current-user-validation-key"] = $result_validation_key;
                 $_SESSION["signed-in"] = true;
-                $_SESSION["current-user-interests"] = $result_interests;
-                $_SESSION["current-user-account-type"] = $result_account_type;
 
                 if (isset($_POST["_remember-me"])) {
                     $_SESSION["_remember-me"] = true;    
