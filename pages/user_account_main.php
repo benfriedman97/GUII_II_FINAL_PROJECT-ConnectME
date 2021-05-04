@@ -67,7 +67,7 @@
             </div>
             <div class="col-3">
             <button type="button" class="btn btn-primary btn-lg">
-                <a href="view_connections.php">CONNECT</a> 
+                CONNECT
             </button>
             </div>
         </div>
@@ -81,7 +81,7 @@
                 View your pending connections.
             </div>
             <div class="col-3">
-            <button type="button" class="btn btn-primary btn-lg">BROWSE</button>
+                <button type="button" class="btn btn-primary btn-lg">BROWSE</button>
             </div>
         </div>
 
