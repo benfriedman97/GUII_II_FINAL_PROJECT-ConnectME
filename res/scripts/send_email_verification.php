@@ -43,7 +43,7 @@ function send_email_verification($email, $name, $key) {
     $emailEncoded = urlencode($sanitizedEmail);
     $verificationLink = urlencode("http://weblab.cs.uml.edu/~jcalles/ConnectME/pages/email_verification.php?encoded-email=" . $emailEncoded . "&key=" . $key);
 
-    $API_key = "37afb2f16emshf22ae9f0723de04p1fe4e6jsnc56de77759a5";
+    $API_key = "REMOVED";
 
     // PART 1 : validate that the email address exists 
     // ------------------------------------------------------------------------
