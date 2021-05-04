@@ -48,8 +48,8 @@
             </div>
 
             <div class="col" id="name_email">
-                <h6 class="text-center" style="color:black">Name: Benjamin Friedman</h4>
-                <h6 class="text-center" style="color:black">Email: benjamin_friedman@student.uml.edu</h4>
+                <h6 class="text-center" style="color:black">Name: <?php echo $_SESSION['current-user-first-name'] . ' ' . $_SESSION['current-user-last-name']; ?></h4>
+                <h6 class="text-center" style="color:black">Email: <?php echo $_SESSION['current-user-email']; ?></h4>
             </div>
             <div class="col">
                 <h4 class="text-center" id="edit_user_profile" style="color:black">
