@@ -24,11 +24,7 @@
             text-align:center;
         }
     </style>
-
-
-        
     
-
 </head>
 <body>
     
@@ -78,40 +74,37 @@
             }
             else {
                 $current_user_id = $_SESSION['current-user-user-id'];
-            ?>
-            <script>console.log("hello");</script>
-            <?php
             
-            $sql = "SELECT * FROM user_information WHERE account_type = '$account_type' AND interests LIKE '%{$str}%' AND user_id != '$current_user_id'";
-            $result = $userdb_connection->query($sql);
-            if ($result->num_rows > 0) {
-                echo '<form method="post" id="search_results_form">';
-                    echo '<div class="container">';
-                        echo '<ul class="list-group" id="search_results">';
-                        while ($row = $result->fetch_array()) {
-                            echo '<li class="list-group-item">';
-                                    echo '<div class="card">';
-                                        echo '<div class="card-body">';
-                                            echo '<h5 class="card-title">' . $row['first_name'] . ' ' . $row['last_name'] . '</h5>';
-                                            echo '<p>' . $row['account_type'] . '</p>';
-                                            if ($row['account_type'] == 'Student') {
-                                                echo '<p>University: ';
-                                            } else {
-                                                echo '<p>Organization: ';
-                                            }
-                                            echo $row['univ_or_comp'] . '</p>';
-                                            echo '<p>Interests: ' . $row['interests'] . '</p>';
-                                            echo '<p>Email: ' . $row['email'] . '</p>';     
-                                            echo '<button type="submit" class="btn btn-primary" id="' . $row['user_id'] . '">Connect with ' . $row['first_name'] . '</button>';
+                $sql = "SELECT * FROM user_information WHERE account_type = '$account_type' AND interests LIKE '%{$str}%' AND user_id <> '$current_user_id'";
+                $result = $userdb_connection->query($sql);
+                if ($result->num_rows > 0) {
+                    echo '<form method="post" id="search_results_form">';
+                        echo '<div class="container">';
+                            echo '<ul class="list-group" id="search_results">';
+                            while ($row = $result->fetch_array()) {
+                                echo '<li class="list-group-item">';
+                                        echo '<div class="card">';
+                                            echo '<div class="card-body">';
+                                                echo '<h5 class="card-title">' . $row['first_name'] . ' ' . $row['last_name'] . '</h5>';
+                                                echo '<p>' . $row['account_type'] . '</p>';
+                                                if ($row['account_type'] == 'Student') {
+                                                    echo '<p>University: ';
+                                                } else {
+                                                    echo '<p>Organization: ';
+                                                }
+                                                echo $row['univ_or_comp'] . '</p>';
+                                                echo '<p>Interests: ' . $row['interests'] . '</p>';
+                                                echo '<p>Email: ' . $row['email'] . '</p>';     
+                                                echo '<button type="submit" class="btn btn-primary" id="' . $row['user_id'] . '">Connect with ' . $row['first_name'] . '</button>';
+                                            echo '</div>';
                                         echo '</div>';
-                                    echo '</div>';
-                                echo '</li>';
-                        }
-                        echo '</ul>';
-                    echo '</div>';
-                echo '</form>';
-            }
-            }
+                                    echo '</li>';
+                            }
+                            echo '</ul>';
+                        echo '</div>';
+                    echo '</form>';
+                    }
+              }
             
         }
     ?>
