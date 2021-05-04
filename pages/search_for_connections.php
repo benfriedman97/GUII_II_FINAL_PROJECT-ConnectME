@@ -72,6 +72,7 @@
                 die("Connection failed:" . $userdb->connect_error);
             }
             $str = $_POST["search"];
+            $account_type = $_POST["account_type"];
             if (empty($str)) {
                 echo '<p style="text-align:center">Something must be entered in the search bar</p>';
             }
@@ -81,7 +82,7 @@
             <script>console.log("hello");</script>
             <?php
             
-            $sql = "SELECT * FROM user_information WHERE interests LIKE '%{$str}%' AND user_id != '$current_user_id'";
+            $sql = "SELECT * FROM user_information WHERE account_type = '$account_type' AND interests LIKE '%{$str}%' AND user_id != '$current_user_id'";
             $result = $userdb_connection->query($sql);
             if ($result->num_rows > 0) {
                 echo '<form method="post" id="search_results_form">';
